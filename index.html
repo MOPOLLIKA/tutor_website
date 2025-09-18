@@ -13,7 +13,16 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@700&family=IBM+Plex+Serif:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Single SVG favicon -->
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYTSZ8BF4Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-ZYTSZ8BF4Z');
+  </script>
 
   <style>
     :root{
@@ -37,9 +46,9 @@
       font-family:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
       font-weight:700;
     }
-    .stat, code, kbd, pre{font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
-
-    /* Favicon-only mark in top-left */
+    .stat, code, kbd, pre{
+      font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
     .brand-mark{
       position:fixed;
       top:16px;
@@ -51,12 +60,38 @@
     .brand-mark:focus{outline:2px solid var(--murberry);outline-offset:4px;border-radius:8px}
   </style>
 </head>
-<img src="wild-deer-nature.jpg" alt="Hero Image" style="width:100%; height:auto; display:block;">
-<img src="mediterranean-chameleon-basking-walking-garigue-vegetation-malta.jpg" alt="Hero Image" style="width:100%; height:auto; display:block;">
 <body>
   <!-- Blank canvas: only the favicon in the top-left -->
   <a class="brand-mark" href="#" aria-label="Philipp Maths and Physics home">
-    <img src="favicon.svg" alt="Philipp favicon">
+    <img src="/favicon.svg" alt="Philipp favicon">
   </a>
+
+  <img src="wild-deer-nature.jpg" alt="Hero Image" style="width:100%; height:auto; display:block;">
+  <img src="mediterranean-chameleon-basking-walking-garigue-vegetation-malta.jpg" alt="Hero Image" style="width:100%; height:auto; display:block;">
+
+  <!-- Optional: lightweight click tracking for future buttons/links -->
+  <script>
+    document.addEventListener('click', function(e) {
+      const el = e.target.closest('a,button');
+      if (!el) return;
+      const href = el.href || '';
+      const custom = el.dataset && el.dataset.gtagEvent;
+      if (custom) { gtag('event', custom); return; }
+      if (href.startsWith('mailto:')) gtag('event', 'contact_click', { method: 'email' });
+      else if (href.startsWith('tel:')) gtag('event', 'contact_click', { method: 'phone' });
+      else if (href.includes('wa.me') || href.includes('api.whatsapp.com')) gtag('event', 'contact_click', { method: 'whatsapp' });
+      else if (href.includes('calendly.com') || href.includes('cal.com')) gtag('event', 'book_consult_click', { destination: 'calendly' });
+    });
+
+    // If you later embed Calendly inline, this tracks completed bookings
+    window.addEventListener('message', function(evt) {
+      const d = evt.data || {};
+      if (typeof d !== 'object') return;
+      if (d.event === 'calendly.event_scheduled') {
+        const name = d?.payload?.event_type?.name || 'Consult';
+        gtag('event', 'calendly_scheduled', { event_name: name });
+      }
+    });
+  </script>
 </body>
 </html>
