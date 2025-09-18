@@ -24,48 +24,38 @@
     gtag('config', 'G-ZYTSZ8BF4Z');
   </script>
 
-  <!-- LCP to GA4 -->
-<script>
-(function () {
-  if (!('PerformanceObserver' in window)) return;
-
-  let lcpEntry;
-
-  // Observe LCP, including buffered entries in case it already happened
-  const po = new PerformanceObserver((list) => {
-    const entries = list.getEntries();
-    lcpEntry = entries[entries.length - 1];
-  });
-  try { po.observe({ type: 'largest-contentful-paint', buffered: true }); } catch (_) {}
-
-  // Only report once when the page is about to be hidden
-  function reportLCP() {
-    if (!lcpEntry || typeof gtag !== 'function') return;
-
-    // GA4 wants integers for "value". Keep ms as integer. Also send seconds for nicer charts.
-    const lcp_ms = Math.round(lcpEntry.startTime);
-    const lcp_s = +(lcp_ms / 1000).toFixed(3);
-
-    gtag('event', 'lcp', {
-      value: lcp_ms,                 // main numeric value in ms
-      lcp_value: lcp_ms,             // duplicate param if you want a custom metric on it
-      lcp_seconds: lcp_s,            // easier to read in GA4 with "seconds" unit
-      element: lcpEntry.element && lcpEntry.element.tagName
-               ? lcpEntry.element.tagName.toLowerCase() : undefined,
-      url: lcpEntry.url || location.pathname,
-      size: lcpEntry.size || undefined,
-      id: 'lcp-' + Math.random().toString(36).slice(2),
-      transport_type: 'beacon'
+  <!-- LCP to GA4 (unchanged) -->
+  <script>
+  (function () {
+    if (!('PerformanceObserver' in window)) return;
+    let lcpEntry;
+    const po = new PerformanceObserver((list) => {
+      const entries = list.getEntries();
+      lcpEntry = entries[entries.length - 1];
     });
-  }
-
-  // Finalize when user leaves or tab is hidden
-  addEventListener('pagehide', reportLCP, { once: true });
-  addEventListener('visibilitychange', function () {
-    if (document.visibilityState === 'hidden') reportLCP();
-  }, { once: true });
-})();
-</script>
+    try { po.observe({ type: 'largest-contentful-paint', buffered: true }); } catch (_) {}
+    function reportLCP() {
+      if (!lcpEntry || typeof gtag !== 'function') return;
+      const lcp_ms = Math.round(lcpEntry.startTime);
+      const lcp_s = +(lcp_ms / 1000).toFixed(3);
+      gtag('event', 'lcp', {
+        value: lcp_ms,
+        lcp_value: lcp_ms,
+        lcp_seconds: lcp_s,
+        element: lcpEntry.element && lcpEntry.element.tagName
+                 ? lcpEntry.element.tagName.toLowerCase() : undefined,
+        url: lcpEntry.url || location.pathname,
+        size: lcpEntry.size || undefined,
+        id: 'lcp-' + Math.random().toString(36).slice(2),
+        transport_type: 'beacon'
+      });
+    }
+    addEventListener('pagehide', reportLCP, { once: true });
+    addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'hidden') reportLCP();
+    }, { once: true });
+  })();
+  </script>
 
   <style>
     :root{
@@ -92,15 +82,42 @@
     .stat, code, kbd, pre{
       font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
+
+    /* Clickable brand mark */
     .brand-mark{
       position:fixed;
       top:16px;
       left:16px;
-      display:inline-block;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:6px;                 /* room for the rounded rect */
+      border-radius:12px;
       line-height:0;
+      -webkit-tap-highlight-color: transparent;
     }
     .brand-mark img{width:32px;height:32px;display:block}
-    .brand-mark:focus{outline:2px solid var(--murberry);outline-offset:4px;border-radius:8px}
+
+    /* Rounded rectangle that appears only on hover/active */
+    .brand-mark::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:12px;
+      background: rgba(198, 90, 114, 0.18); /* murberry with opacity */
+      opacity:0;
+      transition: opacity .15s ease-in-out;
+      pointer-events:none;
+    }
+    .brand-mark:hover::before{ opacity:1; }          /* visible on hover */
+    .brand-mark:active::before{ opacity:0.10; }      /* lighter while pressed */
+
+    /* Keep accessibility: show focus ring for keyboard nav only */
+    .brand-mark:focus-visible{
+      outline:2px solid var(--murberry);
+      outline-offset:4px;
+      border-radius:12px;
+    }
   </style>
 </head>
 <body>
@@ -123,7 +140,7 @@
       else if (href.includes('calendly.com') || href.includes('cal.com')) gtag('event', 'book_consult_click', { destination: 'calendly' });
     });
 
-    // If you later embed Calendly inline, this tracks completed bookings
+    // Calendly inline completion tracker (future use)
     window.addEventListener('message', function(evt) {
       const d = evt.data || {};
       if (typeof d !== 'object') return;
