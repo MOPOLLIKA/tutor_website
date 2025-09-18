@@ -24,6 +24,49 @@
     gtag('config', 'G-ZYTSZ8BF4Z');
   </script>
 
+  <!-- LCP to GA4 -->
+<script>
+(function () {
+  if (!('PerformanceObserver' in window)) return;
+
+  let lcpEntry;
+
+  // Observe LCP, including buffered entries in case it already happened
+  const po = new PerformanceObserver((list) => {
+    const entries = list.getEntries();
+    lcpEntry = entries[entries.length - 1];
+  });
+  try { po.observe({ type: 'largest-contentful-paint', buffered: true }); } catch (_) {}
+
+  // Only report once when the page is about to be hidden
+  function reportLCP() {
+    if (!lcpEntry || typeof gtag !== 'function') return;
+
+    // GA4 wants integers for "value". Keep ms as integer. Also send seconds for nicer charts.
+    const lcp_ms = Math.round(lcpEntry.startTime);
+    const lcp_s = +(lcp_ms / 1000).toFixed(3);
+
+    gtag('event', 'lcp', {
+      value: lcp_ms,                 // main numeric value in ms
+      lcp_value: lcp_ms,             // duplicate param if you want a custom metric on it
+      lcp_seconds: lcp_s,            // easier to read in GA4 with "seconds" unit
+      element: lcpEntry.element && lcpEntry.element.tagName
+               ? lcpEntry.element.tagName.toLowerCase() : undefined,
+      url: lcpEntry.url || location.pathname,
+      size: lcpEntry.size || undefined,
+      id: 'lcp-' + Math.random().toString(36).slice(2),
+      transport_type: 'beacon'
+    });
+  }
+
+  // Finalize when user leaves or tab is hidden
+  addEventListener('pagehide', reportLCP, { once: true });
+  addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'hidden') reportLCP();
+  }, { once: true });
+})();
+</script>
+
   <style>
     :root{
       --murberry:#c65a72; /* brand accent */
