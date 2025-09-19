@@ -208,10 +208,13 @@
     .hero-right img{
       width: min(100%, 520px);
       height: auto;
-      border-radius: 16px;
       display: block;
-      box-shadow: 0 2px 24px rgba(11, 31, 58, 0.15);
-      background: var(--paper);
+      border-radius: 16px; /* keep rounded corners if the image rectangle shows */
+      box-shadow: none;    /* remove rectangular shadow */
+      /* no fill behind the PNG so transparency shows the gradient */
+      /* background: var(--paper); */
+      /* shadow that respects alpha transparency */
+      filter: drop-shadow(0 2px 24px rgba(11,31,58,0.15));
     }
   </style>
 </head>
