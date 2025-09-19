@@ -121,8 +121,16 @@
 
     /* --- Hero section --- */
     .hero{
-      background: linear-gradient(90deg, var(--murberry) 0%, var(--stone) 100%);
-      padding: clamp(48px, 10vw, 96px) 0;
+      background-color: var(--murberry);
+      background: radial-gradient(circle farthest-corner at 0% 0%, var(--murberry) 0%, var(--murberry) 80%, var(--stone) 100%);
+      /* Full-viewport height with modern mobile-safe units + fallbacks */
+      min-height: 100vh;
+      min-height: 100svh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      /* modest vertical breathing room so content isn't glued to edges on tiny screens */
+      padding-block: clamp(24px, 4vh, 64px);
       margin-top: 0;
     }
     .hero-inner{
