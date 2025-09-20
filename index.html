@@ -121,8 +121,13 @@
 
     /* --- Hero section --- */
     .hero{
-      background-color: var(--murberry);
-      background: linear-gradient(135deg, #693d56 0%, var(--murberry) 100%);
+      background-color: var(--paper);
+      background:
+        linear-gradient(135deg,
+          rgba(198,90,114,0.12) 0%,
+          rgba(198,90,114,0.06) 40%,
+          rgba(198,90,114,0.00) 70%),
+        var(--paper);
       /* Full-viewport height with modern mobile-safe units + fallbacks */
       min-height: 100vh;
       min-height: 100svh;
@@ -153,7 +158,7 @@
     }
     .hero-title{
       margin: 0 0 12px 0;
-      font-size: clamp(28px, 4vw, 42px);
+      font-size: clamp(32px, 5vw, 56px);
       line-height: 1.1;
       letter-spacing: -0.01em;
     }
@@ -180,9 +185,9 @@
       display: inline-block;
       padding: 12px 18px;
       border-radius: 12px;
-      background: var(--paper);
-      color: var(--ink);
-      border: 1px solid rgba(11,31,58,0.15);
+      background: var(--murberry);
+      color: var(--paper);
+      border: 1px solid rgba(11,31,58,0.10);
       text-decoration: none;
       font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
       font-weight: 700;
@@ -205,6 +210,13 @@
       border: 1px solid rgba(11,31,58,0.12); /* subtle ink outline */
       border-radius: 8px;
     }
+    .text-skeleton .placeholder{
+      height:16px;
+      width:min(60%, 560px);
+      background: rgba(11,31,58,0.06);
+      border: 1px solid rgba(11,31,58,0.08);
+      border-radius:6px;
+    }
     .title-skel{ height: clamp(28px, 4vw, 42px); width: min(85%, 720px); margin: 0 0 12px 0; }
     .line{ height: 14px; margin: 8px 0; }
     .w-80{ width: 80%; } .w-60{ width: 60%; } .w-40{ width: 40%; }
@@ -219,6 +231,14 @@
       border: 1px solid rgba(11,31,58,0.15);
       width: clamp(90px, 18vw, 180px);
     }
+    .hero-right img{
+      width: min(100%, 520px);
+      height: auto;
+      display: block;
+      border-radius: 16px;
+      border: 1px solid rgba(11,31,58,0.10);
+      filter: drop-shadow(0 18px 42px rgba(11,31,58,0.12));
+    }
   </style>
 </head>
 <body>
@@ -230,17 +250,8 @@
     <div class="hero-inner">
       <div class="hero-left">
         <div class="text-skeleton" aria-hidden="true">
-          <div class="placeholder title-skel"></div>
-          <div class="placeholder line w-80"></div>
-          <div class="placeholder line w-60"></div>
+          <div class="placeholder"></div>
         </div>
-        <ul class="proofs-skeleton" aria-hidden="true">
-          <li class="chip"></li>
-          <li class="chip"></li>
-          <li class="chip"></li>
-          <li class="chip"></li>
-          <li class="chip"></li>
-        </ul>
         <a class="btn-primary" href="https://calendly.com/philippmathsphysics/consult" target="_blank" rel="noopener" data-gtag-event="book_consult_click" aria-label="Book a consult on Calendly">Book consult</a>
       </div>
       <div class="hero-right">
