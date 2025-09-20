@@ -166,17 +166,21 @@
       text-transform: uppercase;
       color: rgba(11,31,58,0.75);
     }
+    .hero-title{
+      margin: 0 0 12px 0;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
     .u-underline{ position: relative; display: inline-block; z-index: 0; }
     .u-underline::after{
       content: "";
       position: absolute;
       left: 0; right: 0;
-      bottom: -0.22em;          /* sit just below the baseline */
-      height: 0.45em;           /* base stroke height */
-      background: url('/assets/underline.avif') center bottom/100% 100% no-repeat;
-      transform-origin: center bottom;
-      transform: scaleY(10);    /* 10× original thickness (5× more than previous) */
-      z-index: -1;              /* render behind the text */
+      bottom: -0.35em;          /* sits under the baseline */
+      height: 2.25em;           /* very thick underline */
+      background: url('/assets/underline.avif') left bottom / 100% 100% no-repeat;
+      z-index: -1;              /* behind the glyphs */
       pointer-events: none;
     }
     .proofs{
