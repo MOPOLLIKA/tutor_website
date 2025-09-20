@@ -122,12 +122,7 @@
     /* --- Hero section --- */
     .hero{
       background-color: var(--murberry);
-      background: radial-gradient(
-        circle farthest-corner at 0% 0%,
-        var(--murberry) 0%,
-        var(--murberry) 60%,
-        #693c56 100%
-      );
+      background: linear-gradient(135deg, #693d56 0%, var(--murberry) 100%);
       /* Full-viewport height with modern mobile-safe units + fallbacks */
       min-height: 100vh;
       min-height: 100svh;
@@ -185,8 +180,9 @@
       display: inline-block;
       padding: 12px 18px;
       border-radius: 12px;
-      background: var(--murberry);
-      color: var(--paper);
+      background: var(--paper);
+      color: var(--ink);
+      border: 1px solid rgba(11,31,58,0.15);
       text-decoration: none;
       font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
       font-weight: 700;
@@ -202,19 +198,26 @@
       border-radius: 12px;
     }
 
-    .hero-right{
-      justify-self: center;
+    /* Hero text placeholders (structure only) */
+    .text-skeleton{ margin: 0 0 16px 0; }
+    .placeholder{
+      background: rgba(247,245,242,0.5); /* paper with transparency */
+      border: 1px solid rgba(11,31,58,0.12); /* subtle ink outline */
+      border-radius: 8px;
     }
-    .hero-right img{
-      width: min(100%, 520px);
-      height: auto;
-      display: block;
-      border-radius: 16px; /* keep rounded corners if the image rectangle shows */
-      box-shadow: none;    /* remove rectangular shadow */
-      /* no fill behind the PNG so transparency shows the gradient */
-      /* background: var(--paper); */
-      /* shadow that respects alpha transparency */
-      filter: drop-shadow(0 2px 24px rgba(11,31,58,0.15));
+    .title-skel{ height: clamp(28px, 4vw, 42px); width: min(85%, 720px); margin: 0 0 12px 0; }
+    .line{ height: 14px; margin: 8px 0; }
+    .w-80{ width: 80%; } .w-60{ width: 60%; } .w-40{ width: 40%; }
+
+    .proofs-skeleton{
+      display: flex; flex-wrap: wrap; gap: 10px;
+      padding: 0; margin: 12px 0 20px 0; list-style: none;
+    }
+    .proofs-skeleton .chip{
+      height: 28px; border-radius: 999px;
+      background: rgba(247,245,242,0.6);
+      border: 1px solid rgba(11,31,58,0.15);
+      width: clamp(90px, 18vw, 180px);
     }
   </style>
 </head>
@@ -226,13 +229,17 @@
   <section class="hero" role="banner">
     <div class="hero-inner">
       <div class="hero-left">
-        <h1 class="hero-title">Premium 1 to 1 A Level Maths and Physics</h1>
-        <ul class="proofs">
-          <li>4×A*</li>
-          <li>Top 0.03% nationwide</li>
-          <li>295/300 Maths</li>
-          <li>100% Pure 1</li>
-          <li>98% Computer Science Paper 1</li>
+        <div class="text-skeleton" aria-hidden="true">
+          <div class="placeholder title-skel"></div>
+          <div class="placeholder line w-80"></div>
+          <div class="placeholder line w-60"></div>
+        </div>
+        <ul class="proofs-skeleton" aria-hidden="true">
+          <li class="chip"></li>
+          <li class="chip"></li>
+          <li class="chip"></li>
+          <li class="chip"></li>
+          <li class="chip"></li>
         </ul>
         <a class="btn-primary" href="https://calendly.com/philippmathsphysics/consult" data-gtag-event="book_consult_click" aria-label="Book a consult on Calendly">Book consult</a>
       </div>
