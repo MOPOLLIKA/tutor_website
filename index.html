@@ -166,6 +166,16 @@
       text-transform: uppercase;
       color: rgba(11,31,58,0.75);
     }
+    .u-underline{ position: relative; display: inline-block; }
+    .u-underline::after{
+      content: "";
+      position: absolute;
+      left: 0; right: 0;
+      bottom: -0.08em;          /* sit just below the baseline */
+      height: 0.45em;            /* underline thickness relative to font size */
+      background: url('/assets/underline.avif') center bottom/100% 100% no-repeat;
+      pointer-events: none;
+    }
     .proofs{
       margin: 0 0 20px 0;
       padding: 0;
@@ -253,7 +263,7 @@
     <div class="hero-inner">
       <div class="hero-left">
         <div class="overline">Where precision meets understanding.</div>
-        <h1 class="hero-title">A Level Maths and Physics, taught for results.</h1>
+        <h1 class="hero-title">A Level Maths and Physics, taught for <span class="u-underline">results</span>.</h1>
         <a class="btn-primary" href="https://calendly.com/philippmathsphysics/consult" target="_blank" rel="noopener" data-gtag-event="book_consult_click" aria-label="Book a consult on Calendly">Book consult</a>
       </div>
       <div class="hero-right">
