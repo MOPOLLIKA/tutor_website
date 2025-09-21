@@ -7,6 +7,7 @@
   <meta name="description" content="Specialist A Level tutoring in Maths, Further Maths, Physics, and Computer Science.">
   <meta name="theme-color" content="#c65a72">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@700&family=IBM+Plex+Serif:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@700&family=IBM+Plex+Serif:wght@400;500&display=swap"></noscript>
@@ -129,6 +130,11 @@
     .hero-right{ justify-self:end }
     @media (min-width:1100px){ .hero-right{ transform:translateX(12px) } }
     .hero-right img{ width:100%; height:auto; display:block; filter:drop-shadow(0 18px 42px rgba(11,31,58,.12)) }
+
+    @media (prefers-reduced-motion: reduce){
+      .btn-primary{ transition: none; }
+      .btn-primary:hover, .btn-primary:active{ transform: none; }
+    }
   </style>
 
   <!-- copy the same image preload line from core.html -->
@@ -144,8 +150,8 @@
   <section class="hero" role="banner">
     <div class="hero-inner">
       <div class="hero-left">
-        <a id="pill-core" class="overline is-inactive" href="core.html" aria-label="Core track">Core track</a>
-        <a id="pill-specialist" class="overline overline--stone is-active" href="specialist.html" aria-label="Specialist track">Specialist track</a>
+        <a id="pill-core" class="overline is-inactive" href="core.html" aria-label="Core track" data-gtag-event="switch_track" data-track="core">Core track</a>
+        <a id="pill-specialist" class="overline overline--stone is-active" href="specialist.html" aria-label="Specialist track" aria-current="page" data-gtag-event="switch_track" data-track="specialist">Specialist track</a>
 
         <h1 class="hero-title">A Level Maths and Physics,<br>taught for <span class="u-underline">results</span></h1>
         <p class="hero-sub">Measured outcomes across 5 performance indicators, not just promises.</p>
@@ -177,7 +183,7 @@
     document.addEventListener('click', function(e) {
       const el = e.target.closest('a,button'); if (!el) return;
       const href = el.href || ''; const custom = el.dataset && el.dataset.gtagEvent;
-      if (custom) { gtag('event', custom); return; }
+      if (custom) { gtag('event', custom, el.dataset); return; }
       if (href.startsWith('mailto:')) gtag('event','contact_click',{method:'email'});
       else if (href.startsWith('tel:')) gtag('event','contact_click',{method:'phone'});
       else if (href.includes('wa.me') || href.includes('api.whatsapp.com')) gtag('event','contact_click',{method:'whatsapp'});
