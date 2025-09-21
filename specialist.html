@@ -1,0 +1,12 @@
+cd "/Users/MOPOLLIKA/Library/Mobile Documents/com~apple~CloudDocs/tutoring/website"
+# create the two files
+pbpaste > core.html <<'EOF'
+# paste the core.html content above and press Ctrl-D
+EOF
+pbpaste > specialist.html <<'EOF'
+# paste the specialist.html content above and press Ctrl-D
+EOF
+
+git add core.html specialist.html index.html
+git commit -m "routes: split into core.html and specialist.html; index redirects to core"
+git push
