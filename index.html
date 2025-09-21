@@ -138,6 +138,7 @@
       /* modest vertical breathing room so content isn't glued to edges on tiny screens */
       padding-block: clamp(24px, 4vh, 64px);
       margin-top: 0;
+      position: relative;
     }
     .hero-inner{
       max-width: 1240px;
@@ -156,6 +157,12 @@
     }
     .hero-left{
       color: var(--ink);
+    }
+    /* On small screens, push the text down so it doesn't overlap the top-left brand mark */
+    @media (max-width: 700px){
+      .hero-left{
+        margin-top: calc(72px + env(safe-area-inset-top, 0px)); /* ~favicon height + breathing room */
+      }
     }
     .overline{
       margin: 0 0 8px 0;
@@ -229,6 +236,8 @@
       outline-offset: 3px;
       border-radius: 12px;
     }
+    /* Make button label pop slightly */
+    .btn-primary{ text-shadow: 0 1px 0 rgba(11,31,58,0.22); }
     .hero-sub{
       margin: 8px 0 16px 0;
       max-width: 56ch;
@@ -253,6 +262,31 @@
       display: inline-flex;
       flex-direction: column;
       align-items: center; /* centers the caption under the button width */
+    }
+
+    /* Bottom-center chevron cue */
+    .scroll-cue{
+      position: absolute;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      width: 36px; height: 36px;
+      display: grid; place-items: center;
+      border-radius: 999px;
+      background: rgba(247,245,242,0.85); /* paper */
+      border: 1px solid rgba(11,31,58,0.12);
+      box-shadow: 0 6px 16px rgba(11,31,58,0.10);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .scroll-cue svg{ display:block; width:18px; height:18px; fill: var(--ink); opacity: .9; }
+    .scroll-cue:hover svg{ opacity: 1; }
+    .scroll-cue:focus-visible{ outline:2px solid var(--mulberry); outline-offset:3px; }
+
+    /* Stone background section extending below the hero */
+    .below{
+      background: var(--stone);
+      min-height: 200vh; /* 2× page height */
     }
 
     /* Hero text placeholders (structure only) */
@@ -324,7 +358,13 @@
         </picture>
       </div>
     </div>
+    <a class="scroll-cue" href="#more" aria-label="Scroll for more">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6.7 9.3a1 1 0 0 1 1.4 0L12 13.2l3.9-3.9a1 1 0 1 1 1.4 1.4l-4.6 4.6a1 1 0 0 1-1.4 0L6.7 10.7a1 1 0 0 1 0-1.4z"/>
+      </svg>
+    </a>
   </section>
+  <section id="more" class="below" aria-hidden="true"></section>
 
   <!-- Optional: lightweight click tracking for future buttons/links -->
   <script>
