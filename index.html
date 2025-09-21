@@ -175,13 +175,12 @@
     .u-underline{ position: relative; display: inline-block; z-index: 0; }
     .u-underline::after{
       content: "";
-      position: relative;
-      left: -10%;
-      right: -5%;
-      bottom: -1.30em;     /* sits just below the baseline */
-      height: 2.25em;      /* thickness of underline image */
-      background: url('/assets/underline.avif') 0% 100% / 100% 100% no-repeat;
-      z-index: -1;
+      position: absolute;
+      left: -10%; right: -5%;   /* 115% width (7.5% overflow on each side) */
+      bottom: -1.30em;          /* sits under the baseline */
+      height: 2.25em;           /* very thick underline */
+      background: url('/assets/underline.avif') left bottom / 100% 100% no-repeat;
+      z-index: -1;              /* behind the glyphs */
       pointer-events: none;
     }
     .proofs{
