@@ -178,12 +178,27 @@
       border: 1px solid rgba(11,31,58,0.10);
       border-radius: 999px; /* paper pill */
       box-shadow: 0 4px 14px rgba(11,31,58,0.06);
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+      transition: opacity .15s ease, border-color .15s ease, box-shadow .15s ease;
     }
     .overline--stone{
-      background: rgba(203,213,225,0.50); /* stone @ 50% */
+      background: var(--stone); /* full stone */
       border-color: rgba(11,31,58,0.12);
       color: rgba(11,31,58,0.70);
       margin-left: 8px; /* sits to the right of CORE TRACK */
+    }
+    .overline.is-inactive{ opacity: .4; }
+    .overline.is-active{ opacity: 1; }
+    .overline.is-inactive:hover{
+      opacity: 1;
+      border-color: var(--ink);
+      box-shadow: 0 6px 16px rgba(11,31,58,0.08);
+    }
+    .overline:focus-visible{
+      outline: 2px solid var(--mulberry);
+      outline-offset: 2px;
     }
     .hero-title{
       margin: 0 0 12px 0;
@@ -356,7 +371,7 @@
   <section class="hero" role="banner">
     <div class="hero-inner">
       <div class="hero-left">
-        <div class="overline">Core track</div><div class="overline overline--stone">Specialist track</div>
+        <a id="pill-core" class="overline is-active" href="./" data-gtag-event="track_switch" aria-label="Switch to Core track">Core track</a><a id="pill-specialist" class="overline overline--stone is-inactive" href="?track=specialist" data-gtag-event="track_switch" aria-label="Switch to Specialist track">Specialist track</a>
         <h1 class="hero-title">A Level Maths and Physics,<br>taught for <span class="u-underline">results</span></h1>
         <p class="hero-sub">Measured outcomes across 5 performance indicators, not just promises.</p>
         <div class="trust-hook">4×A* Imperial College Computing (AI) | 295/300 (98%) A Level Maths | BPhO Gold </div>
@@ -382,6 +397,27 @@
   </section>
   <section id="more" class="below" aria-hidden="true"></section>
 
+  <script>
+    (function(){
+      const params = new URLSearchParams(location.search);
+      const specialistActive = params.get('track') === 'specialist';
+      const coreEl = document.getElementById('pill-core');
+      const specEl = document.getElementById('pill-specialist');
+      if (!coreEl || !specEl) return;
+
+      function setState(isSpecialist){
+        coreEl.classList.toggle('is-active', !isSpecialist);
+        coreEl.classList.toggle('is-inactive', isSpecialist);
+        specEl.classList.toggle('is-active', isSpecialist);
+        specEl.classList.toggle('is-inactive', !isSpecialist);
+        // Ensure links point to the correct destinations
+        coreEl.href = location.pathname; // core = default page
+        specEl.href = location.pathname + '?track=specialist'; // specialist = param route for now
+      }
+
+      setState(specialistActive);
+    })();
+  </script>
   <!-- Optional: lightweight click tracking for future buttons/links -->
   <script>
     document.addEventListener('click', function(e) {
