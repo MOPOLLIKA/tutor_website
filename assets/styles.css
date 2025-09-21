@@ -40,6 +40,12 @@ h1,h2,h3,h4,h5,h6{
 .hero-left{ color:var(--ink); }
 @media (max-width:700px){ .hero-left{ margin-top:calc(72px + env(safe-area-inset-top,0px)); } }
 
+.pill-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:nowrap; /* keep both pills on one line */
+}
 /* Track pills */
 .overline{
   margin:0 0 8px 0;
@@ -115,4 +121,31 @@ h1,h2,h3,h4,h5,h6{
 @media (prefers-reduced-motion: reduce){
   .btn-primary{ transition:none }
   .btn-primary:hover,.btn-primary:active{ transform:none }
+}
+
+/* ===== Mobile tightening: top align pills and show full image ===== */
+@media (max-width: 700px){
+  /* Pull the hero up and remove extra offset */
+  .hero{ padding-top: 8px !important; padding-bottom: 8px; }
+  .hero-left{ margin-top: 0 !important; }
+
+  /* Keep pills on one line, left-aligned, slightly smaller */
+  .pill-row{ margin-top: 0 !important; }
+  .pill-row .overline{
+    padding:8px 12px;
+    font-size:12px;
+    line-height:1;
+    white-space:nowrap; /* prevent line breaks inside the pill */
+  }
+  /* Remove desktop-only left margin between pills; we use gap instead */
+  .overline--stone{ margin-left: 0; }
+
+  /* Make sure the face image stays fully visible above the fold */
+  .hero-right img{
+    max-height:44vh;
+    object-fit:contain;
+  }
+
+  /* Hide the scroll cue on small screens to reclaim space */
+  .scroll-cue{ display:none; }
 }
