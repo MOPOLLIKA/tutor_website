@@ -140,7 +140,7 @@
       margin-top: 0;
     }
     .hero-inner{
-      max-width: 1120px;
+      max-width: 1240px;
       margin: 0 auto;
       padding: 0 16px;
       display: grid;
@@ -150,8 +150,8 @@
     }
     @media (min-width: 900px){
       .hero-inner{
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 40px;
+        grid-template-columns: 1.35fr 0.65fr; /* wider text column */
+        gap: 48px;
       }
     }
     .hero-left{
@@ -175,12 +175,13 @@
     .u-underline{ position: relative; display: inline-block; z-index: 0; }
     .u-underline::after{
       content: "";
-      position: absolute;
-      left: -12.5%; right: -5.0%;   /* 120% width */
-      bottom: -1.30em;          /* sits under the baseline */
-      height: 2.25em;           /* very thick underline */
-      background: url('/assets/underline.avif') left bottom / 100% 100% no-repeat;
-      z-index: -1;              /* behind the glyphs */
+      position: relative;
+      left: -10%;
+      right: -5%;
+      bottom: -1.30em;     /* sits just below the baseline */
+      height: 2.25em;      /* thickness of underline image */
+      background: url('/assets/underline.avif') 0% 100% / 100% 100% no-repeat;
+      z-index: -1;
       pointer-events: none;
     }
     .proofs{
@@ -272,6 +273,12 @@
       border: 1px solid rgba(11,31,58,0.15);
       width: clamp(90px, 18vw, 180px);
     }
+    .hero-right{
+      justify-self: end;
+    }
+    @media (min-width: 1100px){
+      .hero-right{ transform: translateX(12px); } /* nudge image to the right */
+    }
     .hero-right img{
       width: 100%;
       height: auto;
@@ -290,7 +297,7 @@
     <div class="hero-inner">
       <div class="hero-left">
         <div class="overline">Core track</div>
-        <h1 class="hero-title">A Level Maths and Physics,<br><span class="u-underline">taught for results</span></h1>
+        <h1 class="hero-title">A Level Maths and Physics,<br>taught for <span class="u-underline">results</span></h1>
         <p class="hero-sub">Measured outcomes across 5 performance indicators, not just promises.</p>
         <div class="trust-hook">4×A* Imperial College Computing (AI)</div>
         <a class="btn-primary" href="https://calendly.com/philippmathsphysics/consult" target="_blank" rel="noopener" data-gtag-event="book_consult_click" aria-label="Book a consult on Calendly">Book consult</a>
