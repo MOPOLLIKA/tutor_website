@@ -37,14 +37,11 @@ h1,h2,h3,h4,h5,h6{
 }
 .hero--specialist{
   background:
-    linear-gradient(140deg,
-      rgba(97,110,132,.22) 0%,
-      rgba(203,213,225,.22) 36%,
-      rgba(203,213,225,0) 78%),
-    linear-gradient(185deg,
-      rgba(203,213,225,.97) 0%,
-      rgba(203,213,225,.88) 52%,
-      rgba(203,213,225,.94) 100%);
+    linear-gradient(135deg,
+      rgba(203,213,225,.12) 0%,
+      rgba(203,213,225,.06) 40%,
+      rgba(203,213,225,0) 70%),
+    var(--stone);
 }
 .hero-inner{max-width:1240px;margin:0 auto;padding:0 16px;display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
 @media (min-width:900px){ .hero-inner{ grid-template-columns:1.35fr .65fr; gap:48px; } }
