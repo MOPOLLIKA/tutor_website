@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Specialist A Level tutoring in Maths, Further Maths, Physics, and Computer Science.">
   <meta name="theme-color" content="#c65a72">
+  <!-- dev-only: disable caching while debugging -->
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +21,8 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYTSZ8BF4Z"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-ZYTSZ8BF4Z');</script>
 
-  <link rel="stylesheet" href="/assets/styles.css">
+  <!-- dev-only: cache-busting query while iterating -->
+  <link rel="stylesheet" href="/assets/styles.css?dev=1">
 
   <!-- copy the same image preload line from core.html -->
   <link rel="preload" as="image" href="/assets/philipp-1200.avif" type="image/avif"
@@ -64,6 +69,7 @@
 
   <section id="more" class="below" aria-hidden="true"></section>
 
-  <script src="/assets/app.js" defer></script>
+  <!-- dev-only: cache-busting query while iterating -->
+  <script src="/assets/app.js?dev=1" defer></script>
 </body>
 </html>
