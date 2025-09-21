@@ -36,12 +36,11 @@ h1,h2,h3,h4,h5,h6{
   display:flex; align-items:center; padding-block:clamp(24px,4vh,64px); margin-top:0; position:relative;
 }
 .hero--specialist{
-background:
-    linear-gradient(135deg,
-        rgba(203,213,225,0.12) 0%,
-        rgba(203,213,225,0.06) 40%,
-        rgba(203,213,225,0.00) 70%
-    ),
+  background:
+    linear-gradient(315deg,
+      rgba(198,90,114,.12) 0%,
+      rgba(198,90,114,.06) 40%,
+      rgba(198,90,114,0) 70%),
     var(--paper);
 }
 .hero-inner{max-width:1240px;margin:0 auto;padding:0 16px;display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
