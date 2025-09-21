@@ -18,7 +18,117 @@
   <script>(function(){if(!('PerformanceObserver'in window))return;let e;const o=new PerformanceObserver(t=>{const n=t.getEntries();e=n[n.length-1]});try{o.observe({type:'largest-contentful-paint',buffered:!0})}catch(_){ }function r(){if(!e||typeof gtag!=='function')return;const t=Math.round(e.startTime);gtag('event','lcp',{value:t,lcp_seconds:+(t/1000).toFixed(3),element:e.element&&e.element.tagName?e.element.tagName.toLowerCase():void 0,url:e.url||location.pathname,size:e.size||void 0,transport_type:'beacon'})}addEventListener('pagehide',r,{once:!0});addEventListener('visibilitychange',()=>{document.visibilityState==='hidden'&&r()},{once:!0})})();</script>
 
   <style>
-    /* === copy the entire <style> from core.html unchanged === */
+    :root{
+      --mulberry:#c65a72; --stone:#cbd5e1; --paper:#f7f5f2; --teal:#0d9488; --ink:#0b1f3a;
+    }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{
+      margin:0;background:var(--paper);color:var(--ink);
+      font-family:"IBM Plex Serif",ui-serif,Georgia,serif;
+      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility
+    }
+    h1,h2,h3,h4,h5,h6{
+      font-family:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;
+      font-weight:700
+    }
+    .stat,code,kbd,pre{
+      font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace
+    }
+
+    /* Brand mark */
+    .brand-mark{
+      position:fixed;top:16px;left:16px;display:inline-flex;align-items:center;justify-content:center;padding:6px;border-radius:12px;line-height:0;-webkit-tap-highlight-color:transparent
+    }
+    .brand-mark img{width:32px;height:32px;display:block}
+    .brand-mark::before{
+      content:"";position:absolute;inset:0;border-radius:12px;background:rgba(198,90,114,.18);opacity:0;transition:opacity .15s ease-in-out;pointer-events:none
+    }
+    .brand-mark:hover::before{opacity:1}
+    .brand-mark:active::before{opacity:.10}
+    .brand-mark:focus-visible{outline:2px solid var(--mulberry);outline-offset:4px;border-radius:12px}
+
+    /* Hero */
+    .hero{
+      background:
+        linear-gradient(135deg, rgba(198,90,114,.12) 0%, rgba(198,90,114,.06) 40%, rgba(198,90,114,0) 70%),
+        var(--paper);
+      min-height:100vh; min-height:100svh; min-height:100dvh;
+      display:flex; align-items:center;
+      padding-block:clamp(24px,4vh,64px);
+      margin-top:0; position:relative;
+    }
+    .hero-inner{
+      max-width:1240px;margin:0 auto;padding:0 16px;display:grid;grid-template-columns:1fr;gap:28px;align-items:center
+    }
+    @media (min-width:900px){
+      .hero-inner{ grid-template-columns:1.35fr .65fr; gap:48px; }
+    }
+    .hero-left{ color:var(--ink); }
+    /* Avoid overlap with fixed brand mark on small screens */
+    @media (max-width:700px){
+      .hero-left{ margin-top:calc(72px + env(safe-area-inset-top,0px)); }
+    }
+
+    /* Track pills */
+    .overline{
+      margin:0 0 8px 0;
+      font-family:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;
+      font-weight:700;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:rgba(11,31,58,.75);
+      display:inline-block;padding:6px 12px;background:rgba(247,245,242,.96);
+      border:1px solid rgba(11,31,58,.10);border-radius:999px;box-shadow:0 4px 14px rgba(11,31,58,.06);
+      cursor:pointer;user-select:none;text-decoration:none;
+      transition:opacity .15s ease,border-color .15s ease,box-shadow .15s ease;
+    }
+    .overline--stone{ background:var(--stone); border-color:rgba(11,31,58,.12); color:rgba(11,31,58,.70); margin-left:8px; }
+    .overline.is-inactive{ opacity:.4 } .overline.is-active{ opacity:1 }
+    .overline.is-inactive:hover{ opacity:1; border-color:var(--ink); box-shadow:0 6px 16px rgba(11,31,58,.08); }
+    .overline:focus-visible{ outline:2px solid var(--mulberry); outline-offset:2px; }
+
+    /* Heading + underline */
+    .hero-title{ margin:0 0 12px 0; font-size:calc(clamp(32px,5vw,56px) - 4px); line-height:1.1; letter-spacing:-.01em; }
+    .u-underline{ position:relative; display:inline-block; z-index:0; }
+    .u-underline::after{
+      content:""; position:absolute;
+      left:-0.04em; right:-0.04em; bottom:-0.12em; height:0.18em;
+      background:url('/assets/underline.avif') 0% 100% / 100% 100% no-repeat;
+      z-index:-1; pointer-events:none;
+    }
+
+    /* Subtext, proof, CTA */
+    .hero-sub{ margin:8px 0 16px 0; max-width:56ch; color:rgba(11,31,58,.88); font-size:clamp(19px,2.34vw,23px); }
+    .trust-hook{ margin:10px 0 18px 0; font-family:"IBM Plex Sans",ui-sans-serif; font-weight:700; font-size:16px; letter-spacing:.06em; color:rgba(11,31,58,.85); }
+    .cta-sub{ margin-top:6px; font-size:14px; color:rgba(11,31,58,.65); }
+    .cta{ display:inline-flex; flex-direction:column; align-items:center; }
+
+    /* Primary button */
+    .btn-primary{
+      display:inline-block;padding:12px 18px;border-radius:12px;background:var(--mulberry);color:var(--paper);
+      border:1px solid rgba(11,31,58,.10);text-decoration:none;font-family:"IBM Plex Sans",ui-sans-serif;font-weight:700;letter-spacing:.01em;
+      box-shadow:0 10px 24px rgba(11,31,58,.18),0 2px 6px rgba(11,31,58,.10);
+      transition:transform .08s ease, box-shadow .15s ease; will-change:transform, box-shadow;
+    }
+    .btn-primary:hover{ transform:translateY(1px); box-shadow:0 6px 16px rgba(11,31,58,.16),0 1px 4px rgba(11,31,58,.10) }
+    .btn-primary:active{ transform:translateY(2px); box-shadow:0 3px 8px rgba(11,31,58,.18),0 1px 3px rgba(11,31,58,.12) }
+    .btn-primary:focus-visible{ outline:2px solid var(--ink); outline-offset:3px; border-radius:12px; }
+
+    /* Scroll cue */
+    .scroll-cue{
+      position:absolute; left:50%; bottom:16px; transform:translateX(-50%);
+      width:36px; height:36px; display:grid; place-items:center;
+      border-radius:999px; background:rgba(247,245,242,.85); border:1px solid rgba(11,31,58,.12);
+      box-shadow:0 6px 16px rgba(11,31,58,.10); cursor:pointer; -webkit-tap-highlight-color:transparent;
+    }
+    .scroll-cue svg{ display:block; width:18px; height:18px; fill:var(--ink); opacity:.9 }
+    .scroll-cue:hover svg{ opacity:1 }
+    .scroll-cue:focus-visible{ outline:2px solid var(--mulberry); outline-offset:3px }
+
+    /* Below section */
+    .below{ background:var(--stone); min-height:200vh }
+
+    /* Media & image */
+    .hero-right{ justify-self:end }
+    @media (min-width:1100px){ .hero-right{ transform:translateX(12px) } }
+    .hero-right img{ width:100%; height:auto; display:block; filter:drop-shadow(0 18px 42px rgba(11,31,58,.12)) }
   </style>
 
   <!-- copy the same image preload line from core.html -->
