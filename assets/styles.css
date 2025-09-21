@@ -94,6 +94,9 @@ h1,h2,h3,h4,h5,h6{
 .trust-hook{ margin:0 0 36px 0; font-family:"IBM Plex Sans",ui-sans-serif; font-weight:600; font-size:clamp(18px,2.6vw,22px); letter-spacing:.04em; color:rgba(11,31,58,.78); }
 .cta-sub{ font-size:15px; color:rgba(11,31,58,.6); }
 .cta{ display:inline-flex; flex-direction:column; align-items:center; gap:12px; margin-top:32px; }
+.cta--portrait{ margin-top:28px; }
+.btn-primary--hero{ padding:18px 32px; font-size:clamp(18px,2.1vw,20px); border-radius:18px; }
+.hero-right .cta-sub{ margin-top:4px; }
 
 /* Primary button */
 .btn-primary{
@@ -128,7 +131,14 @@ h1,h2,h3,h4,h5,h6{
 .line{ height:14px; margin:8px 0 } .w-80{ width:80% } .w-60{ width:60% } .w-40{ width:40% }
 
 /* Media & image */
-.hero-right{ justify-self:end }
+.hero-right{
+  justify-self:end;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:24px;
+}
+.hero-right picture{ width:100%; display:flex; justify-content:center; }
 @media (min-width:1100px){ .hero-right{ transform:translateX(8px) } }
 .hero-right img{ width:92%; height:auto; display:block; filter:drop-shadow(0 12px 28px rgba(11,31,58,.08)) }
 
@@ -143,6 +153,7 @@ h1,h2,h3,h4,h5,h6{
   /* Pull the hero up and remove extra offset */
   .hero{ padding-top: 8px !important; padding-bottom: 8px; }
   .hero-left{ margin-top: 0 !important; }
+  .hero-inner{ gap:24px; }
 
   /* Keep pills on one line, left-aligned, slightly smaller */
   .pill-row{ margin: 0 0 20px 0 !important; }
@@ -155,11 +166,21 @@ h1,h2,h3,h4,h5,h6{
   /* Remove desktop-only left margin between pills; we use gap instead */
   .overline--stone{ margin-left: 0; }
 
+  .track-overline{ font-size:13.6px; margin:18px 0 12px 0; }
+  .hero-title{ font-size:clamp(26px, 6.4vw, 44px); }
+  .hero-sub{ font-size:clamp(17px, 2.6vw, 20px); margin-bottom:24px; }
+  .trust-hook{ font-size:clamp(15px, 2.8vw, 18px); margin-bottom:28px; }
+  .cta-sub{ font-size:13px; }
+
   /* Make sure the face image stays fully visible above the fold */
   .hero-right img{
     max-height:44vh;
     object-fit:contain;
+    width:min(320px, 80vw);
   }
+
+  .hero-right{ gap:18px; }
+  .hero-right picture{ justify-content:center; }
 
   /* Specialist track needs the portrait anchored to the bottom, centred */
   body.track-specialist .hero-inner{
@@ -170,19 +191,29 @@ h1,h2,h3,h4,h5,h6{
     min-height:calc(100vh - 32px);
   }
   body.track-specialist .hero-left{ padding-top: 32px; }
-  body.track-specialist .hero-right{
+  body.track-specialist .hero-right,
+  body.track-core .hero-right{
     width:100%;
     margin-top:auto;
     display:flex;
+    flex-direction:column;
     justify-content:center;
-    align-items:flex-end;
-    padding-bottom:12px;
+    align-items:center;
+    padding-bottom:18px;
   }
-  body.track-specialist .hero-right picture{ display:flex; justify-content:center; }
-  body.track-specialist .hero-right img{
+  body.track-specialist .hero-right img,
+  body.track-core .hero-right img{
     width:auto;
-    max-width:min(360px,80vw);
+    max-width:min(340px,80vw);
   }
+
+  .btn-primary--hero{
+    width:min(320px,82vw);
+    padding:16px 24px;
+    font-size:17px;
+    box-shadow:0 18px 32px rgba(11,31,58,.28);
+  }
+  .cta--portrait{ margin-top:12px; }
 
   /* Hide the scroll cue on small screens to reclaim space */
   .scroll-cue{ display:none; }
