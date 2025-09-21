@@ -156,27 +156,6 @@
     }
     .hero-left{
       color: var(--ink);
-      position: relative;
-      z-index: 0; /* establish stacking context for the backdrop */
-    }
-    .hero-left::before{
-      content: "";
-      position: absolute;
-      /* create padded backdrop that hugs the text block */
-      inset: -16px -16px -16px -16px;
-      background: rgba(247,245,242,0.92); /* paper with high opacity for contrast */
-      border: 1px solid rgba(11,31,58,0.08);
-      border-radius: 16px;
-      box-shadow: 0 12px 36px rgba(11,31,58,0.10);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(2px);
-      z-index: -1; /* sit behind the text but above the hero background */
-    }
-    @media (max-width: 600px){
-      .hero-left::before{ inset: -12px; } /* tighter on phones */
-    }
-    @media (min-width: 1200px){
-      .hero-left::before{ inset: -20px -20px -20px -24px; } /* a hair wider on large screens */
     }
     .overline{
       margin: 0 0 8px 0;
@@ -186,6 +165,12 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: rgba(11,31,58,0.75);
+      display: inline-block;
+      padding: 6px 12px;
+      background: rgba(247,245,242,0.96);
+      border: 1px solid rgba(11,31,58,0.10);
+      border-radius: 999px; /* paper pill */
+      box-shadow: 0 4px 14px rgba(11,31,58,0.06);
     }
     .hero-title{
       margin: 0 0 12px 0;
@@ -198,7 +183,7 @@
       content: "";
       position: absolute;
       left: -10%; right: -5%;   /* 115% width (7.5% overflow on each side) */
-      bottom: -1.30em;          /* sits under the baseline */
+      bottom: -1.25em;          /* sits under the baseline */
       height: 2.25em;           /* very thick underline */
       background: url('/assets/underline.avif') left bottom / 100% 100% no-repeat;
       z-index: -1;              /* behind the glyphs */
@@ -248,13 +233,13 @@
       margin: 8px 0 16px 0;
       max-width: 56ch;
       color: rgba(11,31,58,0.88);
-      font-size: clamp(15px, 1.8vw, 18px);
+      font-size: clamp(19px, 2.34vw, 23px); /* +30% */
     }
     .trust-hook{
       margin: 10px 0 18px 0;
       font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 16px; /* +15% */
       letter-spacing: 0.06em;
       color: rgba(11,31,58,0.85);
       text-transform: none;
@@ -263,6 +248,11 @@
       margin-top: 6px;
       font-size: 14px;
       color: rgba(11,31,58,0.65);
+    }
+    .cta{
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center; /* centers the caption under the button width */
     }
 
     /* Hero text placeholders (structure only) */
@@ -320,8 +310,10 @@
         <h1 class="hero-title">A Level Maths and Physics,<br>taught for <span class="u-underline">results</span></h1>
         <p class="hero-sub">Measured outcomes across 5 performance indicators, not just promises.</p>
         <div class="trust-hook">4×A* Imperial College Computing (AI) | 295/300 (98%) A Level Maths | BPhO Gold </div>
-        <a class="btn-primary" href="https://calendly.com/philippmathsphysics/consult" target="_blank" rel="noopener" data-gtag-event="book_consult_click" aria-label="Book a consult on Calendly">Book consult</a>
-        <div class="cta-sub">No charge • 20 min</div>
+        <div class="cta">
+          <a class="btn-primary" href="https://calendly.com/philippmathsphysics/consult" target="_blank" rel="noopener" data-gtag-event="book_consult_click" aria-label="Book a consult on Calendly">Book consult</a>
+          <div class="cta-sub">No charge • 20 min</div>
+        </div>
       </div>
       <div class="hero-right">
         <!-- Replace the src with your actual photo path -->
