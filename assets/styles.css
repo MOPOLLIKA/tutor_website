@@ -38,10 +38,10 @@ h1,h2,h3,h4,h5,h6{
 .hero--specialist{
   background:
     linear-gradient(135deg,
-      rgba(203,213,225,.12) 0%,
-      rgba(203,213,225,.06) 40%,
+      rgba(203,213,225,1) 0%,
+      rgba(203,213,225,.5) 40%,
       rgba(203,213,225,0) 70%),
-    var(--stone);
+    var(--paper);
 }
 .hero-inner{max-width:1240px;margin:0 auto;padding:0 16px;display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
 @media (min-width:900px){ .hero-inner{ grid-template-columns:1.35fr .65fr; gap:48px; } }
