@@ -17,7 +17,7 @@ h1,h2,h3,h4,h5,h6{
 
 /* Brand mark */
 .brand-mark{
-  position:fixed;top:16px;left:16px;display:inline-flex;align-items:center;justify-content:center;padding:6px;border-radius:12px;line-height:0;-webkit-tap-highlight-color:transparent;
+  position:fixed;top:16px;left:16px;display:inline-flex;align-items:center;justify-content:center;padding:6px;border-radius:12px;line-height:0;-webkit-tap-highlight-color:transparent;z-index:10;
 }
 .brand-mark img{width:32px;height:32px;display:block}
 .brand-mark::before{
