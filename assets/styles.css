@@ -147,12 +147,12 @@ h1,h2,h3,h4,h5,h6{
 /* ===== Mobile tightening: top align pills and show full image ===== */
 @media (max-width: 700px){
   /* Pull the hero up and remove extra offset */
-  .hero{ padding-top: 8px !important; padding-bottom: 8px; }
+  .hero{ padding-top: 12px !important; padding-bottom: 20px; }
   .hero-left{ margin-top: 0 !important; }
-  .hero-inner{ gap:24px; }
+  .hero-inner{ gap:18px; }
 
   /* Keep pills on one line, left-aligned, slightly smaller */
-  .pill-row{ margin: 0 0 20px 0 !important; }
+  .pill-row{ margin: 0 0 14px 0 !important; }
   .pill-row .overline{
     padding:8px 12px;
     font-size:12px;
@@ -162,20 +162,22 @@ h1,h2,h3,h4,h5,h6{
   /* Remove desktop-only left margin between pills; we use gap instead */
   .overline--stone{ margin-left: 0; }
 
-  .track-overline{ font-size:13.6px; margin:18px 0 12px 0; }
-  .hero-title{ font-size:clamp(26px, 6.4vw, 44px); }
-  .hero-sub{ font-size:clamp(17px, 2.6vw, 20px); margin-bottom:24px; }
-  .trust-hook{ font-size:clamp(15px, 2.8vw, 18px); margin-bottom:28px; }
-  .cta-sub{ font-size:13px; }
+  .track-overline{ font-size:13px; margin:14px 0 8px 0; }
+  .hero-title{ font-size:clamp(24px, 6vw, 40px); margin-bottom:18px; }
+  .hero-sub{ font-size:clamp(16px, 2.4vw, 18px); margin-bottom:18px; max-width:48ch; }
+  .trust-hook{ font-size:clamp(14px, 2.6vw, 17px); margin-bottom:20px; }
+  .cta{ align-items:center; margin-top:18px; gap:10px; }
+  .cta .btn-primary{ align-self:center; width:min(280px,80vw); text-align:center; }
+  .cta-sub{ font-size:12.5px; }
 
   /* Make sure the face image stays fully visible above the fold */
   .hero-right img{
-    max-height:44vh;
+    max-height:40vh;
     object-fit:contain;
-    width:min(320px, 80vw);
+    width:min(280px,72vw);
   }
 
-  .hero-right{ gap:18px; }
+  .hero-right{ gap:12px; }
   .hero-right picture{ justify-content:center; }
 
   /* Specialist track needs the portrait anchored to the bottom, centred */
@@ -186,7 +188,8 @@ h1,h2,h3,h4,h5,h6{
     gap:24px;
     min-height:calc(100vh - 32px);
   }
-  body.track-specialist .hero-left{ padding-top: 32px; }
+  body.track-specialist .hero-left,
+  body.track-core .hero-left{ padding-top: 18px; }
   body.track-specialist .hero-right,
   body.track-core .hero-right{
     width:100%;
@@ -195,15 +198,13 @@ h1,h2,h3,h4,h5,h6{
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    padding-bottom:18px;
+    padding-bottom:14px;
   }
   body.track-specialist .hero-right img,
   body.track-core .hero-right img{
     width:auto;
-    max-width:min(340px,80vw);
+    max-width:min(300px,78vw);
   }
-
-  .cta{ align-items:center; }
 
   /* Hide the scroll cue on small screens to reclaim space */
   .scroll-cue{ display:none; }
