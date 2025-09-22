@@ -119,12 +119,12 @@ h1,h2,h3,h4,h5,h6{
 .scroll-chevron{
   position:absolute;
   left:50%;
-  bottom:32px;
+  bottom:40px;
   transform:translateX(-50%);
-  width:20px;
+  width:400px;
   height:auto;
-  opacity:.65;
-  filter:drop-shadow(0 6px 14px rgba(11,31,58,.2));
+  opacity:.4;
+  filter:drop-shadow(0 12px 28px rgba(11,31,58,.22));
 }
 .scroll-chevron:hover{ opacity:.85; }
 .scroll-chevron:focus-visible{ outline:2px solid var(--mulberry); outline-offset:6px; border-radius:4px; }
