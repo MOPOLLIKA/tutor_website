@@ -147,7 +147,7 @@ h1,h2,h3,h4,h5,h6{
 
 /* ===== Mobile tightening: top align pills and show full image ===== */
 @media (max-width: 700px){
-  :root{ --mobile-hero-offset: calc(max(60px, 7vh) + max(60px, 7vh) + env(safe-area-inset-top, 0px) + 16px); }
+  :root{ --mobile-hero-offset: calc(max(60px, 7vh) + env(safe-area-inset-top, 0px) + 10vh); }
   /* Pull the hero up and remove extra offset */
   .hero{ padding-top: 16px !important; padding-bottom: 32px; }
   .hero-left{ margin-top: 0 !important; padding-top: 0; }
