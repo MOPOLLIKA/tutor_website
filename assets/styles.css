@@ -93,7 +93,8 @@ h1,h2,h3,h4,h5,h6{
 .hero-sub{ margin:0 0 34px 0; max-width:52ch; color:rgba(11,31,58,.84); font-size:clamp(20px,2.4vw,24px); }
 .trust-hook{ margin:0 0 36px 0; font-family:"IBM Plex Sans",ui-sans-serif; font-weight:600; font-size:clamp(18px,2.6vw,22px); letter-spacing:.04em; color:rgba(11,31,58,.78); }
 .cta-sub{ font-size:15px; color:rgba(11,31,58,.6); }
-.cta{ display:inline-flex; flex-direction:column; align-items:flex-start; gap:10px; margin-top:26px; }
+.cta{ display:inline-flex; flex-direction:column; align-items:flex-start; gap:12px; margin-top:22px; }
+.cta .btn-primary{ align-self:flex-start; }
 
 /* Primary button */
 .btn-primary{
@@ -147,12 +148,18 @@ h1,h2,h3,h4,h5,h6{
 /* ===== Mobile tightening: top align pills and show full image ===== */
 @media (max-width: 700px){
   /* Pull the hero up and remove extra offset */
-  .hero{ padding-top: 12px !important; padding-bottom: 20px; }
-  .hero-left{ margin-top: 0 !important; }
-  .hero-inner{ gap:18px; }
+  .hero{ padding-top: 16px !important; padding-bottom: 28px; }
+  .hero-left{ margin-top: 0 !important; padding-top: calc(56px + env(safe-area-inset-top, 0px)); }
+  .hero-inner{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:18px;
+    min-height:calc(100vh - env(safe-area-inset-bottom,0px) - 24px);
+  }
 
   /* Keep pills on one line, left-aligned, slightly smaller */
-  .pill-row{ margin: 0 0 14px 0 !important; }
+  .pill-row{ margin: 0 0 12px 0 !important; }
   .pill-row .overline{
     padding:8px 12px;
     font-size:12px;
@@ -162,22 +169,22 @@ h1,h2,h3,h4,h5,h6{
   /* Remove desktop-only left margin between pills; we use gap instead */
   .overline--stone{ margin-left: 0; }
 
-  .track-overline{ font-size:13px; margin:14px 0 8px 0; }
-  .hero-title{ font-size:clamp(24px, 6vw, 40px); margin-bottom:18px; }
-  .hero-sub{ font-size:clamp(16px, 2.4vw, 18px); margin-bottom:18px; max-width:48ch; }
-  .trust-hook{ font-size:clamp(14px, 2.6vw, 17px); margin-bottom:20px; }
-  .cta{ align-items:center; margin-top:18px; gap:10px; }
-  .cta .btn-primary{ align-self:center; width:min(280px,80vw); text-align:center; }
+  .track-overline{ font-size:12.6px; margin:12px 0 6px 0; }
+  .hero-title{ font-size:clamp(23px, 5.8vw, 38px); margin-bottom:16px; }
+  .hero-sub{ font-size:clamp(15.5px, 2.3vw, 17px); margin-bottom:16px; max-width:46ch; }
+  .trust-hook{ font-size:clamp(13.5px, 2.5vw, 16px); margin-bottom:18px; }
+  .cta{ align-items:center; margin-top:20px; gap:10px; }
+  .cta .btn-primary{ align-self:center; width:min(224px,72vw); text-align:center; }
   .cta-sub{ font-size:12.5px; }
 
   /* Make sure the face image stays fully visible above the fold */
   .hero-right img{
-    max-height:40vh;
+    max-height:38vh;
     object-fit:contain;
-    width:min(280px,72vw);
+    width:min(260px,70vw);
   }
 
-  .hero-right{ gap:12px; }
+  .hero-right{ gap:12px; width:100%; }
   .hero-right picture{ justify-content:center; }
 
   /* Specialist track needs the portrait anchored to the bottom, centred */
@@ -192,18 +199,13 @@ h1,h2,h3,h4,h5,h6{
   body.track-core .hero-left{ padding-top: 18px; }
   body.track-specialist .hero-right,
   body.track-core .hero-right{
-    width:100%;
     margin-top:auto;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    padding-bottom:14px;
+    padding-bottom:24px;
   }
   body.track-specialist .hero-right img,
   body.track-core .hero-right img{
     width:auto;
-    max-width:min(300px,78vw);
+    max-width:min(280px,72vw);
   }
 
   /* Hide the scroll cue on small screens to reclaim space */
