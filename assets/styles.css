@@ -145,9 +145,9 @@ h1,h2,h3,h4,h5,h6{
   .btn-primary:hover,.btn-primary:active{ transform:none }
 }
 
-/* ===== Mobile tightening: top align pills and show full image ===== max(60px, 7vh) + */
+/* ===== Mobile tightening: top align pills and show full image =====  calc(max(60px, 7vh) + env(safe-area-inset-top, 0px) + 10vh)*/
 @media (max-width: 700px){
-  :root{ --mobile-hero-offset: calc(env(safe-area-inset-top, 0px) + 10vh); }
+  :root{ --mobile-hero-offset: safe-area-inset-top; }
   /* Pull the hero up and remove extra offset */
   .hero{ padding-top: 16px !important; padding-bottom: 32px; }
   .hero-left{ margin-top: 0 !important; padding-top: 0; }
