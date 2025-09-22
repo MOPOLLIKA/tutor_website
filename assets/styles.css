@@ -113,19 +113,21 @@ h1,h2,h3,h4,h5,h6{
 .btn-primary:active{ transform:translateY(2px); box-shadow:0 6px 16px rgba(198,90,114,.2) }
 .btn-primary:focus-visible{ outline:2px solid var(--ink); outline-offset:3px; border-radius:14px; }
 
-/* Scroll cue */
-.scroll-cue{
-  position:absolute; left:50%; bottom:16px; transform:translateX(-50%);
-  width:36px; height:36px; display:grid; place-items:center;
-  border-radius:999px; background:rgba(247,245,242,.85); border:1px solid rgba(11,31,58,.12);
-  box-shadow:0 6px 16px rgba(11,31,58,.10); cursor:pointer; -webkit-tap-highlight-color:transparent;
-}
-.scroll-cue img{ display:block; width:18px; height:18px; opacity:.9 }
-.scroll-cue:hover img{ opacity:1 }
-.scroll-cue:focus-visible{ outline:2px solid var(--mulberry); outline-offset:3px }
-
 /* Below section */
 .below{ background:var(--stone); min-height:200vh }
+
+.scroll-chevron{
+  position:absolute;
+  left:50%;
+  bottom:32px;
+  transform:translateX(-50%);
+  width:20px;
+  height:auto;
+  opacity:.65;
+  filter:drop-shadow(0 6px 14px rgba(11,31,58,.2));
+}
+.scroll-chevron:hover{ opacity:.85; }
+.scroll-chevron:focus-visible{ outline:2px solid var(--mulberry); outline-offset:6px; border-radius:4px; }
 
 /* Skeleton (if used later) */
 .text-skeleton{ margin:0 0 16px 0 }
