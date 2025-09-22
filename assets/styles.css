@@ -116,18 +116,15 @@ h1,h2,h3,h4,h5,h6{
 /* Below section */
 .below{ background:var(--stone); min-height:200vh }
 
-.scroll-chevron{
-  position:absolute;
-  left:50%;
-  bottom:24px;
-  transform:translateX(-50%);
-  width:320px;
-  height:auto;
-  opacity:.4;
-  filter:drop-shadow(0 12px 28px rgba(11,31,58,.22));
+.scroll-cue{
+  position:absolute; left:50%; bottom:16px; transform:translateX(-50%);
+  width:36px; height:36px; display:grid; place-items:center;
+  border-radius:999px; background:rgba(247,245,242,.85); border:1px solid rgba(11,31,58,.12);
+  box-shadow:0 6px 16px rgba(11,31,58,.10); cursor:pointer; -webkit-tap-highlight-color:transparent;
 }
-.scroll-chevron:hover{ opacity:.85; }
-.scroll-chevron:focus-visible{ outline:2px solid var(--mulberry); outline-offset:6px; border-radius:4px; }
+.scroll-cue svg{ display:block; width:18px; height:18px; fill:var(--ink); opacity:.9 }
+.scroll-cue:hover svg{ opacity:1 }
+.scroll-cue:focus-visible{ outline:2px solid var(--mulberry); outline-offset:3px }
 
 /* Skeleton (if used later) */
 .text-skeleton{ margin:0 0 16px 0 }
