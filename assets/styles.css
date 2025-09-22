@@ -150,7 +150,7 @@ h1,h2,h3,h4,h5,h6{
   :root{ --mobile-hero-offset: calc(max(60px, 7vh) + max(60px, 7vh) + env(safe-area-inset-top, 0px) + 16px); }
   /* Pull the hero up and remove extra offset */
   .hero{ padding-top: 16px !important; padding-bottom: 32px; }
-  .hero-left{ margin-top: 0 !important; padding-top: var(--mobile-hero-offset); }
+  .hero-left{ margin-top: 0 !important; padding-top: 0; }
   .hero-inner{
     display:flex;
     flex-direction:column;
@@ -160,7 +160,7 @@ h1,h2,h3,h4,h5,h6{
   }
 
   /* Keep pills on one line, left-aligned, slightly smaller */
-  .pill-row{ margin: 0 0 12px 0 !important; }
+  .pill-row{ margin: var(--mobile-hero-offset) 0 12px 0 !important; }
   .pill-row .overline{
     padding:8px 12px;
     font-size:12px;
