@@ -42,3 +42,35 @@ document.addEventListener('click', function(e) {
   else if (href.includes('wa.me') || href.includes('api.whatsapp.com')) gtag('event', 'contact_click', { method: 'whatsapp' });
   else if (href.includes('calendly.com') || href.includes('cal.com')) gtag('event', 'book_consult_click', { destination: 'calendly' });
 });
+
+// Floating CTA reveal synced to hero CTA visibility
+(function () {
+  const floating = document.querySelector('.floating-cta');
+  const heroCTA = document.querySelector('.hero .cta');
+  if (!floating || !heroCTA) return;
+
+  const setProgress = (value) => {
+    const progress = Math.min(1, Math.max(0, value));
+    floating.style.setProperty('--cta-progress', progress.toFixed(3));
+    if (progress > 0.06) floating.classList.add('is-interactive');
+    else floating.classList.remove('is-interactive');
+  };
+
+  setProgress(0);
+
+  if (!('IntersectionObserver' in window)) {
+    setProgress(1);
+    return;
+  }
+
+  const thresholds = Array.from({ length: 21 }, (_, idx) => idx / 20);
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.target !== heroCTA) continue;
+      const progress = 1 - entry.intersectionRatio;
+      setProgress(progress);
+    }
+  }, { threshold: thresholds, rootMargin: '-8px 0px -8px 0px' });
+
+  observer.observe(heroCTA);
+})();
