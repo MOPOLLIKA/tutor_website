@@ -178,26 +178,40 @@ h1,h2,h3,h4,h5,h6{
     display:flex;
     align-items:center;
     margin:24px auto 0;
-    gap:12px;
     width:100%;
+    position:relative;
+    padding-bottom:10vh;
   }
   .cta .btn-primary{
     align-self:center;
-    width:min(200px,64vw);
+    width:min(190px,60vw);
     text-align:center;
     font-size:117%;
   }
-  .cta-sub{ font-size:14.63px; text-align:center; }
+  .cta-sub{
+    font-size:14.63px;
+    text-align:center;
+    position:absolute;
+    top:calc(100% + 8px);
+    left:50%;
+    transform:translateX(-50%);
+    width:100%;
+    max-width:240px;
+  }
 
   /* Make sure the face image stays fully visible above the fold */
   .hero-right img{
-    max-height:38vh;
+    display:block;
+    max-height:36vh;
     object-fit:contain;
-    width:min(260px,70vw);
+    aspect-ratio:3 / 4;
+    width:min(240px,64vw);
+    height:auto;
+    flex-shrink:0;
   }
 
-  .hero-right{ gap:12px; width:100%; }
-  .hero-right picture{ justify-content:center; }
+  .hero-right{ gap:12px; width:100%; align-items:center; }
+  .hero-right picture{ display:block; width:min(240px,64vw); }
 
   /* Specialist track needs the portrait anchored to the bottom, centred */
   body.track-specialist .hero-inner{
