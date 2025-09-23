@@ -176,11 +176,11 @@ h1,h2,h3,h4,h5,h6{
   .trust-hook{ font-size:clamp(15.8px, 2.93vw, 18.72px); margin-bottom:calc(20px + 1vh); }
   .cta{
     display:flex;
+    flex-direction:column;
     align-items:center;
     margin:24px auto 0;
+    gap:12px;
     width:100%;
-    position:relative;
-    padding-bottom:10vh;
   }
   .cta .btn-primary{
     align-self:center;
@@ -188,16 +188,7 @@ h1,h2,h3,h4,h5,h6{
     text-align:center;
     font-size:117%;
   }
-  .cta-sub{
-    font-size:14.63px;
-    text-align:center;
-    position:absolute;
-    top:calc(100% + 8px);
-    left:50%;
-    transform:translateX(-50%);
-    width:100%;
-    max-width:240px;
-  }
+  .cta-sub{ font-size:14.63px; text-align:center; max-width:240px; }
 
   /* Make sure the face image stays fully visible above the fold */
   .hero-right img{
