@@ -202,7 +202,7 @@ h1,h2,h3,h4,h5,h6{
   }
 
   .hero-right{ gap:12px; width:100%; align-items:center; }
-  .hero-right picture{ display:block; width:min(240px,64vw); }
+  .hero-right picture{ display:block; width:min(240px,64vw); margin:0 auto; }
 
   /* Specialist track needs the portrait anchored to the bottom, centred */
   body.track-specialist .hero-inner{
