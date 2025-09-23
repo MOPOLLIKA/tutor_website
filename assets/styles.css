@@ -265,15 +265,36 @@ details summary{ cursor:pointer; font-weight:600; }
 details p{ margin:8px 0 0; }
 
 .delimiter{
-  width:min(1060px, calc(100% - 48px));
-  height:20px;
-  margin:44px auto;
-  border-radius:999px;
-  background:linear-gradient(90deg, rgba(11,31,58,.12) 0%, rgba(198,90,114,.24) 48%, rgba(11,31,58,.12) 100%);
-  box-shadow:0 14px 40px rgba(11,31,58,.08);
+  position:relative;
+  width:100%;
+  height:0;
 }
-.delimiter--hero{ height:54px; margin:56px auto 48px; }
-.delimiter--section{ height:24px; margin:36px auto; }
+.delimiter--hero{
+  margin:0 0 56px;
+}
+.delimiter--hero::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:1px;
+  background:var(--ink);
+  box-shadow:0 -8px 0 0 var(--ink), 0 8px 0 0 var(--ink);
+}
+.delimiter--section{
+  margin:48px 0;
+}
+.delimiter--section::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:1px;
+  background:var(--ink);
+  box-shadow:0 6px 0 0 var(--ink);
+}
 
 .floating-cta{
   --cta-progress:0;
@@ -315,8 +336,8 @@ details p{ margin:8px 0 0; }
   .sparkline{ width:100%; max-width:220px; justify-self:flex-start; }
   .kpi-grid{ grid-template-columns:1fr 1fr; }
   .tracker-sample img{ max-width:100%; }
-  .delimiter{ margin:32px auto; }
-  .delimiter--hero{ height:44px; margin:40px auto 32px; }
+  .delimiter--hero{ margin:0 0 40px; }
+  .delimiter--section{ margin:36px 0; }
 }
 
 @media (min-width:720px){
