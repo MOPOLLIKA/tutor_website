@@ -163,17 +163,17 @@ h1,h2,h3,h4,h5,h6{
   .pill-row{ margin: var(--mobile-hero-offset) 0 12px 0 !important; }
   .pill-row .overline{
     padding:8px 12px;
-    font-size:14.04px;
+    font-size:13.2px;
     line-height:1;
     white-space:nowrap; /* prevent line breaks inside the pill */
   }
   /* Remove desktop-only left margin between pills; we use gap instead */
   .overline--stone{ margin-left: 0; }
 
-  .track-overline{ font-size:14.74px; margin:12px 0 6px 0; }
-  .hero-title{ font-size:clamp(26.9px, 6.79vw, 44.5px); margin-bottom:18px; }
-  .hero-sub{ font-size:clamp(18.14px, 2.69vw, 19.9px); margin-bottom:18px; max-width:46ch; }
-  .trust-hook{ font-size:clamp(15.8px, 2.93vw, 18.72px); margin-bottom:calc(20px + 1vh); }
+  .track-overline{ font-size:13.86px; margin:12px 0 6px 0; }
+  .hero-title{ font-size:clamp(25.3px, 6.38vw, 41.8px); margin-bottom:18px; }
+  .hero-sub{ font-size:clamp(17.05px, 2.53vw, 18.7px); margin-bottom:18px; max-width:46ch; }
+  .trust-hook{ font-size:clamp(14.85px, 2.75vw, 17.6px); margin-bottom:calc(20px + 1vh); }
   .cta{
     display:flex;
     flex-direction:column;
@@ -186,9 +186,9 @@ h1,h2,h3,h4,h5,h6{
     align-self:center;
     width:min(190px,60vw);
     text-align:center;
-    font-size:117%;
+    font-size:110%;
   }
-  .cta-sub{ font-size:14.63px; text-align:center; max-width:240px; }
+  .cta-sub{ font-size:13.75px; text-align:center; }
 
   /* Make sure the face image stays fully visible above the fold */
   .hero-right img{
