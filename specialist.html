@@ -6,10 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Specialist A Level tutoring in Maths, Further Maths, Physics, and Computer Science.">
   <meta name="theme-color" content="#c65a72">
-  <!-- dev-only: disable caching while debugging -->
-  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,13 +17,12 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYTSZ8BF4Z"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-ZYTSZ8BF4Z');</script>
 
-  <!-- dev-only: cache-busting query while iterating -->
-  <link rel="stylesheet" href="/assets/styles.css?dev=1">
+  <link rel="stylesheet" href="/assets/styles.css">
 
   <!-- copy the same image preload line from core.html -->
-  <link rel="preload" as="image" href="/assets/philipp-1200.avif" type="image/avif"
-        imagesrcset="/assets/philipp-800.avif 800w, /assets/philipp-1200.avif 1200w, /assets/philipp-1800.avif 1800w"
-        imagesizes="(max-width: 900px) 90vw, calc((min(1120px, 100vw) - 32px) * 0.45)">
+  <link rel="preload" as="image" href="/assets/philipp-600.avif" type="image/avif"
+        imagesrcset="/assets/philipp-400.avif 400w, /assets/philipp-600.avif 600w, /assets/philipp-800.avif 800w, /assets/philipp-1200.avif 1200w, /assets/philipp-1800.avif 1800w"
+        imagesizes="(max-width: 374px) 70vw, (max-width: 900px) 260px, calc((min(1120px, 100vw) - 32px) * 0.45)">
 </head>
 <body class="track-specialist">
   <a class="brand-mark" href="#" aria-label="Philipp Tutoring home">
@@ -56,9 +51,9 @@
 
       <div class="hero-right">
         <picture>
-          <source type="image/avif" srcset="/assets/philipp-800.avif 800w, /assets/philipp-1200.avif 1200w, /assets/philipp-1800.avif 1800w" sizes="(max-width: 900px) 90vw, calc((min(1120px, 100vw) - 32px) * 0.45)">
-          <source type="image/webp" srcset="/assets/philipp-800.webp 800w, /assets/philipp-1200.webp 1200w, /assets/philipp-1800.webp 1800w" sizes="(max-width: 900px) 90vw, calc((min(1120px, 100vw) - 32px) * 0.45)">
-          <img src="/assets/philipp-1200.webp" alt="Philipp Bogdan" width="1200" height="1600" loading="eager" fetchpriority="high">
+          <source type="image/avif" srcset="/assets/philipp-400.avif 400w, /assets/philipp-600.avif 600w, /assets/philipp-800.avif 800w, /assets/philipp-1200.avif 1200w, /assets/philipp-1800.avif 1800w" sizes="(max-width: 374px) 70vw, (max-width: 900px) 260px, calc((min(1120px, 100vw) - 32px) * 0.45)">
+          <source type="image/webp" srcset="/assets/philipp-400.webp 400w, /assets/philipp-600.webp 600w, /assets/philipp-800.webp 800w, /assets/philipp-1200.webp 1200w, /assets/philipp-1800.webp 1800w" sizes="(max-width: 374px) 70vw, (max-width: 900px) 260px, calc((min(1120px, 100vw) - 32px) * 0.45)">
+          <img src="/assets/philipp-600.webp" alt="Philipp Bogdan" width="1200" height="1600" loading="eager" fetchpriority="high">
         </picture>
       </div>
     </div>
@@ -70,7 +65,6 @@
 
   <section id="more" class="below" aria-hidden="true"></section>
 
-  <!-- dev-only: cache-busting query while iterating -->
-  <script src="/assets/app.js?dev=1" defer></script>
+  <script src="/assets/app.js" defer></script>
 </body>
 </html>
