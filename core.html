@@ -6,19 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Premium A Level tutoring in Maths, Further Maths, Physics, and Computer Science.">
   <meta name="theme-color" content="#c65a72">
+  <!-- dev-only: disable caching while debugging -->
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://www.google-analytics.com">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@700&family=IBM+Plex+Serif:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@700&family=IBM+Plex+Serif:wght@400;500&display=swap"></noscript>
-
-  <link rel="preload" href="https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q1w.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgg.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="https://fonts.gstatic.com/s/ibmplexsans/v23/zYXGKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1swZSAXcomDVmadSDDV5DB6g4.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="https://fonts.gstatic.com/s/ibmplexserif/v20/jizDREVNn1dOx-zrZ2X3pZvkTiUf2zc.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="https://fonts.gstatic.com/s/ibmplexserif/v20/jizAREVNn1dOx-zrZ2X3pZvkTi3s-CI0q1s.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
@@ -31,11 +29,12 @@
     gtag('config', 'G-ZYTSZ8BF4Z');
   </script>
 
-  <link rel="stylesheet" href="/assets/styles.css">
+  <!-- dev-only: cache-busting query while iterating -->
+  <link rel="stylesheet" href="/assets/styles.css?dev=1">
 
-  <link rel="preload" as="image" href="/assets/philipp-480.avif" type="image/avif"
-        imagesrcset="/assets/philipp-320.avif 320w, /assets/philipp-400.avif 400w, /assets/philipp-480.avif 480w, /assets/philipp-600.avif 600w, /assets/philipp-720.avif 720w, /assets/philipp-800.avif 800w, /assets/philipp-1200.avif 1200w, /assets/philipp-1800.avif 1800w"
-        imagesizes="(max-width: 374px) 64vw, (max-width: 900px) 240px, calc((min(1120px, 100vw) - 32px) * 0.45)">
+  <link rel="preload" as="image" href="/assets/philipp-1200.avif" type="image/avif"
+        imagesrcset="/assets/philipp-800.avif 800w, /assets/philipp-1200.avif 1200w, /assets/philipp-1800.avif 1800w"
+        imagesizes="(max-width: 900px) 90vw, calc((min(1120px, 100vw) - 32px) * 0.45)">
 </head>
 <body class="track-core">
   <a class="brand-mark" href="#" aria-label="Philipp Tutoring home">
@@ -63,9 +62,9 @@
 
       <div class="hero-right">
         <picture>
-          <source type="image/avif" srcset="/assets/philipp-320.avif 320w, /assets/philipp-400.avif 400w, /assets/philipp-480.avif 480w, /assets/philipp-600.avif 600w, /assets/philipp-720.avif 720w, /assets/philipp-800.avif 800w, /assets/philipp-1200.avif 1200w, /assets/philipp-1800.avif 1800w" sizes="(max-width: 374px) 64vw, (max-width: 900px) 240px, calc((min(1120px, 100vw) - 32px) * 0.45)">
-          <source type="image/webp" srcset="/assets/philipp-320.webp 320w, /assets/philipp-400.webp 400w, /assets/philipp-480.webp 480w, /assets/philipp-600.webp 600w, /assets/philipp-720.webp 720w, /assets/philipp-800.webp 800w, /assets/philipp-1200.webp 1200w, /assets/philipp-1800.webp 1800w" sizes="(max-width: 374px) 64vw, (max-width: 900px) 240px, calc((min(1120px, 100vw) - 32px) * 0.45)">
-          <img src="/assets/philipp-480.webp" alt="Philipp Bogdan" width="1200" height="1600" loading="eager" fetchpriority="high">
+          <source type="image/avif" srcset="/assets/philipp-800.avif 800w, /assets/philipp-1200.avif 1200w, /assets/philipp-1800.avif 1800w" sizes="(max-width: 900px) 90vw, calc((min(1120px, 100vw) - 32px) * 0.45)">
+          <source type="image/webp" srcset="/assets/philipp-800.webp 800w, /assets/philipp-1200.webp 1200w, /assets/philipp-1800.webp 1800w" sizes="(max-width: 900px) 90vw, calc((min(1120px, 100vw) - 32px) * 0.45)">
+          <img src="/assets/philipp-1200.webp" alt="Philipp Bogdan" width="1200" height="1600" loading="eager" fetchpriority="high">
         </picture>
       </div>
     </div>
@@ -77,6 +76,7 @@
 
   <section id="more" class="below" aria-hidden="true"></section>
 
-  <script src="/assets/app.js" defer></script>
+  <!-- dev-only: cache-busting query while iterating -->
+  <script src="/assets/app.js?dev=1" defer></script>
 </body>
 </html>
