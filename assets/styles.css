@@ -201,12 +201,16 @@ h1,h2,h3,h4,h5,h6{
     flex-shrink:0;
   }
 
-  .hero-right{ gap:12px; width:100%; align-items:center; }
+  .hero-right{
+    gap:12px;
+    width:min(240px,64vw);
+    align-items:center;
+    margin:0 auto;
+  }
   .hero-right picture{
     display:block;
-    width:min(240px,64vw);
+    width:100%;
     margin:0 auto;
-    align-self:center;
   }
 
   /* Specialist track needs the portrait anchored to the bottom, centred */
