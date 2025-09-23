@@ -174,9 +174,15 @@ h1,h2,h3,h4,h5,h6{
   .hero-title{ font-size:clamp(23px, 5.8vw, 38px); margin-bottom:18px; }
   .hero-sub{ font-size:clamp(15.5px, 2.3vw, 17px); margin-bottom:18px; max-width:46ch; }
   .trust-hook{ font-size:clamp(13.5px, 2.5vw, 16px); margin-bottom:20px; }
-  .cta{ align-items:center; align-self:center; margin-top:24px; gap:12px; }
+  .cta{
+    display:flex;
+    align-items:center;
+    margin:24px auto 0;
+    gap:12px;
+    width:100%;
+  }
   .cta .btn-primary{ align-self:center; width:min(200px,64vw); text-align:center; }
-  .cta-sub{ font-size:12.5px; }
+  .cta-sub{ font-size:12.5px; text-align:center; }
 
   /* Make sure the face image stays fully visible above the fold */
   .hero-right img{
