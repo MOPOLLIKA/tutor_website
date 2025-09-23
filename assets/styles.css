@@ -173,7 +173,7 @@ h1,h2,h3,h4,h5,h6{
   .track-overline{ font-size:12.6px; margin:12px 0 6px 0; }
   .hero-title{ font-size:clamp(23px, 5.8vw, 38px); margin-bottom:18px; }
   .hero-sub{ font-size:clamp(15.5px, 2.3vw, 17px); margin-bottom:18px; max-width:46ch; }
-  .trust-hook{ font-size:clamp(13.5px, 2.5vw, 16px); margin-bottom:20px; }
+  .trust-hook{ font-size:clamp(13.5px, 2.5vw, 16px); margin-bottom:calc(20px + 1vh); }
   .cta{
     display:flex;
     align-items:center;
