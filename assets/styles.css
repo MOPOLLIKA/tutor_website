@@ -196,13 +196,18 @@ h1,h2,h3,h4,h5,h6{
     max-height:36vh;
     object-fit:contain;
     aspect-ratio:3 / 4;
-    width:min(240px,64vw);
+    width:100%;
     height:auto;
     flex-shrink:0;
   }
 
   .hero-right{ gap:12px; width:100%; align-items:center; }
-  .hero-right picture{ display:block; width:min(240px,64vw); margin:0 auto; }
+  .hero-right picture{
+    display:block;
+    width:min(240px,64vw);
+    margin:0 auto;
+    align-self:center;
+  }
 
   /* Specialist track needs the portrait anchored to the bottom, centred */
   body.track-specialist .hero-inner{
