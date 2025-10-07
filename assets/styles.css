@@ -197,7 +197,8 @@ h1,h2,h3,h4,h5,h6{
   .hero-right picture{ justify-content:center; }
 
   /* Specialist track needs the portrait anchored to the bottom, centred */
-  body.track-specialist .hero-inner{
+  body.track-specialist .hero-inner,
+  body.page-cs .hero-inner{
     display:flex;
     flex-direction:column;
     justify-content:space-between;
@@ -205,14 +206,17 @@ h1,h2,h3,h4,h5,h6{
     min-height:calc(100vh - 32px);
   }
   body.track-specialist .hero-left,
-  body.track-core .hero-left{ padding-top: 18px; }
+  body.track-core .hero-left,
+  body.page-cs .hero-left{ padding-top: 18px; }
   body.track-specialist .hero-right,
-  body.track-core .hero-right{
+  body.track-core .hero-right,
+  body.page-cs .hero-right{
     margin-top:auto;
     padding-bottom:var(--mobile-hero-offset);
   }
   body.track-specialist .hero-right img,
-  body.track-core .hero-right img{
+  body.track-core .hero-right img,
+  body.page-cs .hero-right img{
     width:auto;
     max-width:min(280px,72vw);
   }
@@ -229,12 +233,13 @@ h1,h2,h3,h4,h5,h6{
   text-transform:none;
   color:rgba(11,31,58,.6);
 }
-.track-specialist .track-overline{ color:rgba(11,31,58,.7); }
+.track-specialist .track-overline,
+.page-cs .track-overline{ color:rgba(11,31,58,.7); }
 
 /* Core content stack */
 .section{ padding:56px 0; }
 .section-tight{ padding:40px 0; }
-.track-core #core-content{ display:block; padding-bottom:128px; }
+#core-content{ display:block; padding-bottom:128px; }
 .container{ max-width:1120px; margin:0 auto; padding:0 20px; }
 .eyebrow{ font-size:12px; letter-spacing:.08em; text-transform:uppercase; opacity:.8; margin:0 0 8px; }
 .kicker{ margin:0 0 18px; font-size:18px; max-width:60ch; }
@@ -402,7 +407,7 @@ details p{ margin:8px 0 0; }
 @media (max-width:720px){
   .section{ padding:44px 0; }
   .section-tight{ padding:32px 0; }
-  .track-core #core-content{ padding-bottom:152px; }
+  #core-content{ padding-bottom:152px; }
   .case-grid{ grid-template-columns:1fr; }
   .sparkline{ width:100%; max-width:220px; justify-self:flex-start; }
   .kpi-grid{ grid-template-columns:1fr 1fr; }
