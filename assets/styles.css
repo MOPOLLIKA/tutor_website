@@ -28,22 +28,29 @@ h1,h2,h3,h4,h5,h6{
 .brand-mark:focus-visible{outline:2px solid var(--mulberry);outline-offset:4px;border-radius:12px}
 
 .hero-banner-title{
+  position:relative;
+  isolation:isolate;
   margin:0 auto clamp(8px,2.5vh,16px);
   text-align:center;
   font-size:clamp(18px,6.2vw,74px);
   letter-spacing:-.014em;
   font-weight:700;
-  color:var(--stone);
+  color:var(--ink);
   white-space:nowrap;
   text-shadow:none;
-  background-image:radial-gradient(circle at top center,
-    rgba(203,213,225,1) 0%,
-    rgba(203,213,225,0.85) 32%,
-    rgba(203,213,225,0.4) 58%,
-    rgba(203,213,225,0) 90%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
+}
+.hero-banner-title::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:2px;
+  background:radial-gradient(circle at top center,
+    rgba(203,213,225,.28) 0%,
+    rgba(203,213,225,.2) 30%,
+    rgba(203,213,225,.08) 60%,
+    rgba(203,213,225,0) 88%);
+  mix-blend-mode:screen;
+  pointer-events:none;
 }
 
 /* Hero */
@@ -87,8 +94,8 @@ h1,h2,h3,h4,h5,h6{
 
 .page-cs .hero-footnote{
   margin:12px 0 0 0;
-  max-width:80ch;
-  font-size:18px;
+  max-width:50ch;
+  font-size:16px;
   line-height:1.6;
   color:rgba(11,31,58,.64);
 }
