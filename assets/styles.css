@@ -30,7 +30,7 @@ h1,h2,h3,h4,h5,h6{
 .hero-banner-title{
   margin:0 auto clamp(8px,2.5vh,16px);
   text-align:center;
-  font-size:clamp(18px,6.2vw,74px);
+  font-size:clamp(16.7px,5.77vw,68.8px);
   letter-spacing:-.014em;
   font-weight:700;
   color:var(--ink);
@@ -45,7 +45,7 @@ h1,h2,h3,h4,h5,h6{
     var(--paper);
   min-height:100vh; min-height:100svh; min-height:100dvh;
   display:flex; align-items:center; justify-content:center;
-  padding:calc(env(safe-area-inset-top,0px) + clamp(4px,1vh,12px)) clamp(16px,4vw,32px) clamp(12px,4vh,32px);
+  padding:calc(env(safe-area-inset-top,0px) + clamp(4px,0.93vh,11.2px)) clamp(16px,3.72vw,29.8px) clamp(11.2px,3.72vh,29.8px);
   margin-top:0; position:relative;
 }
 .hero--specialist{
@@ -110,12 +110,12 @@ h1,h2,h3,h4,h5,h6{
 .overline:focus-visible{ outline:2px solid var(--mulberry); outline-offset:2px; }
 
 /* Heading + underline */
-.hero-title{ margin:0 0 16px 0; font-size:calc(clamp(36px,6vw,60px) - 6px); line-height:1.04; letter-spacing:-.012em; }
+.hero-title{ margin:0 0 14.9px 0; font-size:calc(clamp(33.5px,5.58vw,55.8px) - 5.58px); line-height:1.04; letter-spacing:-.011em; }
 .hero-guarantee-banner{
-  margin:0 0 24px 0;
+  margin:0 0 22.3px 0;
   font-family:"IBM Plex Sans",ui-sans-serif;
   font-weight:700;
-  font-size:clamp(16px,2.4vw,22px);
+  font-size:clamp(14.9px,2.23vw,20.5px);
   letter-spacing:.08em;
   text-transform:uppercase;
   color:var(--mulberry);
@@ -124,30 +124,30 @@ h1,h2,h3,h4,h5,h6{
     0 0 22px rgba(11,31,58,.45);
 }
 .hero-testimonial{
-  margin:0 0 26px 0;
+  margin:0 0 24.2px 0;
   display:grid;
-  grid-template-columns:72px 1fr;
-  gap:18px;
-  padding:18px 20px;
-  border-radius:18px;
+  grid-template-columns:66.96px 1fr;
+  gap:16.7px;
+  padding:16.7px 18.6px;
+  border-radius:16.7px;
   background:rgba(247,245,242,.82);
   border:1px solid rgba(11,31,58,.08);
-  box-shadow:0 12px 28px rgba(11,31,58,.08);
+  box-shadow:0 11.2px 26px rgba(11,31,58,.08);
 }
 .hero-testimonial__media{
-  width:72px;
-  height:72px;
-  border-radius:12px;
+  width:66.96px;
+  height:66.96px;
+  border-radius:11.1px;
   object-fit:cover;
   display:block;
-  box-shadow:0 6px 16px rgba(11,31,58,.12);
+  box-shadow:0 5.58px 14.9px rgba(11,31,58,.12);
 }
-.hero-testimonial__content{ margin:0; display:flex; flex-direction:column; gap:8px; }
+.hero-testimonial__content{ margin:0; display:flex; flex-direction:column; gap:7.4px; }
 .hero-testimonial__name{
   margin:0;
   font-family:"IBM Plex Sans",ui-sans-serif;
   font-weight:600;
-  font-size:15px;
+  font-size:13.9px;
   letter-spacing:.04em;
   text-transform:uppercase;
   color:rgba(11,31,58,.72);
@@ -155,8 +155,8 @@ h1,h2,h3,h4,h5,h6{
 .hero-testimonial__quote{
   margin:0;
   font-family:"IBM Plex Serif",ui-serif,Georgia,serif;
-  font-size:clamp(18px,2.6vw,22px);
-  line-height:1.5;
+  font-size:clamp(16.7px,2.42vw,20.5px);
+  line-height:1.47;
   color:rgba(11,31,58,.88);
 }
 .u-underline{ position:relative; display:inline-block; z-index:0; }
