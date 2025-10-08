@@ -27,23 +27,13 @@ h1,h2,h3,h4,h5,h6{
 .brand-mark:active::before{opacity:.10}
 .brand-mark:focus-visible{outline:2px solid var(--mulberry);outline-offset:4px;border-radius:12px}
 
-.page-banner-title{
-  width:fit-content;
-  margin:calc(0.25vh + env(safe-area-inset-top,0px)) auto 0.25vh;
-  padding:0.25vh clamp(8px,4vw,24px);
-  text-align:center;
-  font-size:clamp(40px,7vw,66px);
-  letter-spacing:-.01em;
-  color:var(--ink);
-}
-
 /* Hero */
 .hero{
   background:
     linear-gradient(135deg, rgba(198,90,114,.12) 0%, rgba(198,90,114,.06) 40%, rgba(198,90,114,0) 70%),
     var(--paper);
   min-height:100vh; min-height:100svh; min-height:100dvh;
-  display:flex; align-items:center; padding-block:clamp(24px,4vh,64px); margin-top:0; position:relative;
+  display:flex; align-items:center; padding-block:clamp(12px,3vh,48px); margin-top:0; position:relative;
 }
 .hero--specialist{
   background:
@@ -61,7 +51,7 @@ h1,h2,h3,h4,h5,h6{
 .hero-inner{max-width:1240px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
 @media (min-width:900px){ .hero-inner{ grid-template-columns:1.35fr .65fr; gap:56px; } }
 .hero-left{ color:var(--ink); }
-@media (max-width:700px){ .hero-left{ margin-top:calc(72px + env(safe-area-inset-top,0px)); } }
+@media (max-width:700px){ .hero-left{ margin-top:calc(24px + env(safe-area-inset-top,0px)); } }
 
 .page-cs .guarantee{
   margin:26px 0 0 0;
@@ -107,7 +97,25 @@ h1,h2,h3,h4,h5,h6{
 .overline:focus-visible{ outline:2px solid var(--mulberry); outline-offset:2px; }
 
 /* Heading + underline */
-.hero-title{ margin:0 0 24px 0; font-size:calc(clamp(36px,6vw,60px) - 6px); line-height:1.04; letter-spacing:-.012em; }
+.hero-title{ margin:0 0 20px 0; font-size:calc(clamp(36px,6vw,60px) - 6px); line-height:1.04; letter-spacing:-.012em; }
+.hero-title--breakthrough{
+  text-align:left;
+  font-size:calc(clamp(36px,6vw,60px) * 1.1);
+  text-shadow:
+    3px 3px 0 rgba(11,31,58,.85),
+    -3px 3px 0 rgba(11,31,58,.85),
+    3px -3px 0 rgba(11,31,58,.85),
+    -3px -3px 0 rgba(11,31,58,.85),
+    0 10px 24px rgba(11,31,58,.5);
+  color:var(--stone);
+}
+.hero-kicker{
+  margin:0 0 24px 0;
+  font-size:clamp(26px,4.6vw,38px);
+  line-height:1.18;
+  letter-spacing:-.006em;
+  font-weight:700;
+}
 .u-underline{ position:relative; display:inline-block; z-index:0; }
 .u-underline::after{
   content:""; position:absolute;
