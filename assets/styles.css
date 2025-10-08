@@ -43,10 +43,9 @@ h1,h2,h3,h4,h5,h6{
   background:
     linear-gradient(135deg, rgba(198,90,114,.12) 0%, rgba(198,90,114,.06) 40%, rgba(198,90,114,0) 70%),
     var(--paper);
-  min-height:82vh; min-height:82svh; min-height:82dvh;
-  display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
-  padding-block-start:calc(env(safe-area-inset-top,0px) + clamp(0px,2.2vw,28px));
-  padding-block-end:clamp(18px,4vh,44px);
+  min-height:100vh; min-height:100svh; min-height:100dvh;
+  display:flex; align-items:center; justify-content:center;
+  padding:clamp(18px,3vh,32px) clamp(16px,4vw,32px);
   margin-top:0; position:relative;
 }
 .hero--specialist{
