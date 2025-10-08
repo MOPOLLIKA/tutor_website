@@ -40,7 +40,7 @@ h1,h2,h3,h4,h5,h6{
   font-weight:700;
   color:var(--stone);
   white-space:nowrap;
-  text-shadow:0 18px 42px rgba(11,31,58,.55);
+  text-shadow:none;
 }
 
 /* Hero */
@@ -49,8 +49,8 @@ h1,h2,h3,h4,h5,h6{
     linear-gradient(135deg, rgba(198,90,114,.12) 0%, rgba(198,90,114,.06) 40%, rgba(198,90,114,0) 70%),
     var(--paper);
   min-height:100vh; min-height:100svh; min-height:100dvh;
-  display:flex; align-items:center;
-  padding-block-start:clamp(184px,28vh,240px);
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+  padding-block-start:clamp(220px,30vh,270px);
   padding-block-end:clamp(32px,6vh,72px);
   margin-top:0; position:relative;
 }
