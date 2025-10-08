@@ -45,7 +45,7 @@ h1,h2,h3,h4,h5,h6{
     var(--paper);
   min-height:100vh; min-height:100svh; min-height:100dvh;
   display:flex; align-items:center; justify-content:center;
-  padding:clamp(18px,3vh,32px) clamp(16px,4vw,32px);
+  padding:clamp(9px,1.5vh,16px) clamp(16px,4vw,32px);
   margin-top:0; position:relative;
 }
 .hero--specialist{
