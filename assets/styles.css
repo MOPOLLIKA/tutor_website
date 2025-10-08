@@ -27,6 +27,15 @@ h1,h2,h3,h4,h5,h6{
 .brand-mark:active::before{opacity:.10}
 .brand-mark:focus-visible{outline:2px solid var(--mulberry);outline-offset:4px;border-radius:12px}
 
+.page-banner-title{
+  margin:clamp(16px,4vw,36px) auto 12px;
+  text-align:center;
+  font-size:clamp(40px,7vw,66px);
+  letter-spacing:-.01em;
+  color:var(--ink);
+  padding:0 16px;
+}
+
 /* Hero */
 .hero{
   background:
@@ -98,11 +107,6 @@ h1,h2,h3,h4,h5,h6{
 
 /* Heading + underline */
 .hero-title{ margin:0 0 24px 0; font-size:calc(clamp(36px,6vw,60px) - 6px); line-height:1.04; letter-spacing:-.012em; }
-.hero-title-highlight{
-  color:var(--stone);
-  -webkit-text-stroke:3px var(--ink);
-  text-stroke:3px var(--ink);
-}
 .u-underline{ position:relative; display:inline-block; z-index:0; }
 .u-underline::after{
   content:""; position:absolute;
