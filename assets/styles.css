@@ -28,8 +28,6 @@ h1,h2,h3,h4,h5,h6{
 .brand-mark:focus-visible{outline:2px solid var(--mulberry);outline-offset:4px;border-radius:12px}
 
 .hero-banner-title{
-  position:relative;
-  isolation:isolate;
   margin:0 auto clamp(8px,2.5vh,16px);
   text-align:center;
   font-size:clamp(18px,6.2vw,74px);
@@ -38,19 +36,6 @@ h1,h2,h3,h4,h5,h6{
   color:var(--ink);
   white-space:nowrap;
   text-shadow:none;
-}
-.hero-banner-title::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:2px;
-  background:radial-gradient(circle at top center,
-    rgba(203,213,225,.28) 0%,
-    rgba(203,213,225,.2) 30%,
-    rgba(203,213,225,.08) 60%,
-    rgba(203,213,225,0) 88%);
-  mix-blend-mode:screen;
-  pointer-events:none;
 }
 
 /* Hero */
@@ -94,7 +79,7 @@ h1,h2,h3,h4,h5,h6{
 
 .page-cs .hero-footnote{
   margin:12px 0 0 0;
-  max-width:50ch;
+  max-width:60ch;
   font-size:16px;
   line-height:1.6;
   color:rgba(11,31,58,.64);
