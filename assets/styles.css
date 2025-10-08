@@ -124,6 +124,42 @@ h1,h2,h3,h4,h5,h6{
     0 8px 20px rgba(11,31,58,.28),
     0 0 22px rgba(11,31,58,.45);
 }
+.hero-testimonial{
+  margin:0 0 26px 0;
+  display:grid;
+  grid-template-columns:72px 1fr;
+  gap:18px;
+  padding:18px 20px;
+  border-radius:18px;
+  background:rgba(247,245,242,.82);
+  border:1px solid rgba(11,31,58,.08);
+  box-shadow:0 12px 28px rgba(11,31,58,.08);
+}
+.hero-testimonial__media{
+  width:72px;
+  height:72px;
+  border-radius:12px;
+  object-fit:cover;
+  display:block;
+  box-shadow:0 6px 16px rgba(11,31,58,.12);
+}
+.hero-testimonial__content{ margin:0; display:flex; flex-direction:column; gap:8px; }
+.hero-testimonial__name{
+  margin:0;
+  font-family:"IBM Plex Sans",ui-sans-serif;
+  font-weight:600;
+  font-size:15px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:rgba(11,31,58,.72);
+}
+.hero-testimonial__quote{
+  margin:0;
+  font-family:"IBM Plex Serif",ui-serif,Georgia,serif;
+  font-size:clamp(18px,2.6vw,22px);
+  line-height:1.5;
+  color:rgba(11,31,58,.88);
+}
 .u-underline{ position:relative; display:inline-block; z-index:0; }
 .u-underline::after{
   content:""; position:absolute;
