@@ -28,12 +28,13 @@ h1,h2,h3,h4,h5,h6{
 .brand-mark:focus-visible{outline:2px solid var(--mulberry);outline-offset:4px;border-radius:12px}
 
 .page-banner-title{
-  margin:clamp(16px,4vw,36px) auto 12px;
+  width:fit-content;
+  margin:calc(0.25vh + env(safe-area-inset-top,0px)) auto 0.25vh;
+  padding:0.25vh clamp(8px,4vw,24px);
   text-align:center;
   font-size:clamp(40px,7vw,66px);
   letter-spacing:-.01em;
   color:var(--ink);
-  padding:0 16px;
 }
 
 /* Hero */
