@@ -28,12 +28,8 @@ h1,h2,h3,h4,h5,h6{
 .brand-mark:focus-visible{outline:2px solid var(--mulberry);outline-offset:4px;border-radius:12px}
 
 .hero-banner-title{
-  position:absolute;
-  top:calc(env(safe-area-inset-top,0px) + clamp(24px,5vw,64px));
-  left:50%;
-  transform:translateX(-50%);
-  margin:0;
-  padding:0;
+  margin:0 auto clamp(24px,5vh,72px);
+  padding:0 clamp(20px,5vw,48px);
   text-align:center;
   font-size:clamp(18px,6.2vw,74px);
   letter-spacing:-.014em;
@@ -50,7 +46,7 @@ h1,h2,h3,h4,h5,h6{
     var(--paper);
   min-height:100vh; min-height:100svh; min-height:100dvh;
   display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
-  padding-block-start:clamp(220px,30vh,270px);
+  padding-block-start:calc(env(safe-area-inset-top,0px) + clamp(32px,6vw,88px));
   padding-block-end:clamp(32px,6vh,72px);
   margin-top:0; position:relative;
 }
