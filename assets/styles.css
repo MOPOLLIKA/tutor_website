@@ -27,6 +27,22 @@ h1,h2,h3,h4,h5,h6{
 .brand-mark:active::before{opacity:.10}
 .brand-mark:focus-visible{outline:2px solid var(--mulberry);outline-offset:4px;border-radius:12px}
 
+.hero-banner-title{
+  margin:calc(env(safe-area-inset-top,0px) + 12px) auto clamp(8px,1.8vh,18px);
+  padding:0 clamp(20px,6vw,48px);
+  text-align:center;
+  font-size:clamp(44px,8vw,72px);
+  letter-spacing:-.012em;
+  font-weight:700;
+  color:var(--stone);
+  text-shadow:
+    4px 4px 0 var(--ink),
+    -4px 4px 0 var(--ink),
+    4px -4px 0 var(--ink),
+    -4px -4px 0 var(--ink),
+    0 12px 28px rgba(11,31,58,.55);
+}
+
 /* Hero */
 .hero{
   background:
@@ -51,7 +67,7 @@ h1,h2,h3,h4,h5,h6{
 .hero-inner{max-width:1240px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
 @media (min-width:900px){ .hero-inner{ grid-template-columns:1.35fr .65fr; gap:56px; } }
 .hero-left{ color:var(--ink); }
-@media (max-width:700px){ .hero-left{ margin-top:calc(24px + env(safe-area-inset-top,0px)); } }
+@media (max-width:700px){ .hero-left{ margin-top:calc(18px + env(safe-area-inset-top,0px)); } }
 
 .page-cs .guarantee{
   margin:26px 0 0 0;
@@ -97,25 +113,7 @@ h1,h2,h3,h4,h5,h6{
 .overline:focus-visible{ outline:2px solid var(--mulberry); outline-offset:2px; }
 
 /* Heading + underline */
-.hero-title{ margin:0 0 20px 0; font-size:calc(clamp(36px,6vw,60px) - 6px); line-height:1.04; letter-spacing:-.012em; }
-.hero-title--breakthrough{
-  text-align:left;
-  font-size:calc(clamp(36px,6vw,60px) * 1.1);
-  text-shadow:
-    3px 3px 0 rgba(11,31,58,.85),
-    -3px 3px 0 rgba(11,31,58,.85),
-    3px -3px 0 rgba(11,31,58,.85),
-    -3px -3px 0 rgba(11,31,58,.85),
-    0 10px 24px rgba(11,31,58,.5);
-  color:var(--stone);
-}
-.hero-kicker{
-  margin:0 0 24px 0;
-  font-size:clamp(26px,4.6vw,38px);
-  line-height:1.18;
-  letter-spacing:-.006em;
-  font-weight:700;
-}
+.hero-title{ margin:0 0 24px 0; font-size:calc(clamp(36px,6vw,60px) - 6px); line-height:1.04; letter-spacing:-.012em; }
 .u-underline{ position:relative; display:inline-block; z-index:0; }
 .u-underline::after{
   content:""; position:absolute;
