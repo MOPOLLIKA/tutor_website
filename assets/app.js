@@ -74,3 +74,56 @@ document.addEventListener('click', function(e) {
 
   observer.observe(heroCTA);
 })();
+
+// 24h consult promo countdown
+(function () {
+  const STORAGE_KEY = 'cs-prime-offer-start';
+  const PROMO_WINDOW_MS = 24 * 60 * 60 * 1000;
+  const PROMO_LINK = 'https://calendly.com/philippmathsphysics/consult-free-diagnostic';
+  const REGULAR_LINK = 'https://calendly.com/philippmathsphysics/consult';
+
+  const countdownEls = document.querySelectorAll('[data-offer-countdown]');
+  const consultLinks = document.querySelectorAll('[data-consult-link]');
+
+  if (!countdownEls.length && !consultLinks.length) return;
+
+  const now = Date.now();
+  let firstVisit = Number.NaN;
+
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (stored) firstVisit = parseInt(stored, 10);
+  } catch (_) {}
+
+  if (!Number.isFinite(firstVisit) || firstVisit <= 0) {
+    firstVisit = now;
+    try { window.localStorage.setItem(STORAGE_KEY, String(firstVisit)); } catch (_) {}
+  }
+
+  function setState(msRemaining) {
+    const safeRemaining = Math.max(0, msRemaining);
+    const totalSeconds = Math.floor(safeRemaining / 1000);
+    const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+    const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+    const seconds = String(totalSeconds % 60).padStart(2, '0');
+    const stamp = `${hours}:${minutes}:${seconds}`;
+
+    countdownEls.forEach((el) => { el.textContent = stamp; });
+
+    const promoActive = safeRemaining > 0;
+    consultLinks.forEach((link) => {
+      link.href = promoActive ? PROMO_LINK : REGULAR_LINK;
+      link.dataset.offerActive = promoActive ? 'true' : 'false';
+    });
+
+    return promoActive;
+  }
+
+  setState(PROMO_WINDOW_MS - (now - firstVisit));
+
+  const interval = window.setInterval(() => {
+    const remaining = PROMO_WINDOW_MS - (Date.now() - firstVisit);
+    const active = setState(remaining);
+    if (!active) window.clearInterval(interval);
+  }, 1000);
+})();
