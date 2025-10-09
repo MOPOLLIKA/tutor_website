@@ -79,8 +79,8 @@ document.addEventListener('click', function(e) {
 (function () {
   const STORAGE_KEY = 'cs-prime-offer-start';
   const PROMO_WINDOW_MS = 24 * 60 * 60 * 1000;
-  const PROMO_LINK = 'https://calendly.com/philippmathsphysics/consult-free-diagnostic';
-  const REGULAR_LINK = 'https://calendly.com/philippmathsphysics/consult';
+  const PROMO_LINK = 'https://calendly.com/csprime/consult-free-diagnostic';
+  const REGULAR_LINK = 'https://calendly.com/csprime/consult';
 
   const countdownEls = document.querySelectorAll('[data-offer-countdown]');
   const consultLinks = document.querySelectorAll('[data-consult-link]');
