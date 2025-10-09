@@ -127,27 +127,16 @@ h1,h2,h3,h4,h5,h6{
   margin:0 0 26px 0;
   font-family:"IBM Plex Sans",ui-sans-serif;
   font-weight:700;
-  font-size:clamp(14.9px,2.23vw,20.5px);
+  font-size:clamp(17.1px,2.56vw,23.6px);
   letter-spacing:.08em;
   text-transform:uppercase;
   color:var(--mulberry);
   position:relative;
   display:inline-block;
-  padding-bottom:clamp(12px, 1.8vh, 20px);
-}
-.hero-guarantee-banner::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height:0.64em;
-  background:url('/assets/underline.avif') center bottom/100% 100% no-repeat;
-  pointer-events:none;
-  opacity:.76;
 }
 .hero-testimonial{
-  width:var(--copy-measure);
+  width:100%;
+  max-width:var(--copy-measure);
   margin:0;
   display:grid;
   grid-template-columns:64px 1fr;
