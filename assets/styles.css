@@ -438,7 +438,7 @@ h1,h2,h3,h4,h5,h6{
   max-width:260px;
 }
 .hero-portrait{
-  margin:clamp(24px, 6vh, 80px) 0 0;
+  margin:clamp(32px, 7vh, 96px) 0 clamp(28px, 6vh, 80px);
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -454,7 +454,13 @@ h1,h2,h3,h4,h5,h6{
 }
 .hero-right picture{ width:100%; display:flex; justify-content:center; }
 @media (min-width:1100px){ .hero-right{ transform:translateX(8px) } }
-.hero-right img{ width:92%; height:auto; display:block; filter:drop-shadow(0 12px 28px rgba(11,31,58,.08)) }
+.hero-right img{
+  width:85%;
+  height:auto;
+  display:block;
+  filter:drop-shadow(0 12px 28px rgba(11,31,58,.08));
+  transform:translateY(6px);
+}
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce){
@@ -545,13 +551,13 @@ h1,h2,h3,h4,h5,h6{
   }
   .hero-availability__bar{ width:min(280px, 86vw); }
   .hero-availability__caption{ max-width:320px; }
-  .hero-portrait{ margin:clamp(18px, 5vh, 56px) 0 0; }
+  .hero-portrait{ margin:clamp(26px, 6vh, 72px) 0 clamp(24px, 6vh, 60px); }
 
   /* Make sure the face image stays fully visible above the fold */
   .hero-right img{
     max-height:38vh;
     object-fit:contain;
-    width:min(260px,70vw);
+    width:min(220px,60vw);
   }
 
   .hero-right{ gap:12px; width:100%; }
@@ -579,7 +585,7 @@ h1,h2,h3,h4,h5,h6{
   body.track-core .hero-right img,
   body.page-cs .hero-right img{
     width:auto;
-    max-width:min(280px,72vw);
+    max-width:min(238px,61vw);
   }
 
   /* Hide the scroll cue on small screens to reclaim space */
