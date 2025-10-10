@@ -399,6 +399,7 @@ h1,h2,h3,h4,h5,h6{
   align-items:center;
   gap:18px;
   position:relative;
+  padding-top:clamp(48px, 9vh, 140px);
 }
 .hero-availability{
   position:absolute;
@@ -438,7 +439,7 @@ h1,h2,h3,h4,h5,h6{
   max-width:260px;
 }
 .hero-portrait{
-  margin:clamp(32px, 7vh, 96px) 0 clamp(28px, 6vh, 80px);
+  margin:clamp(20px, 4.8vh, 48px) 0 clamp(28px, 6vh, 80px);
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -459,7 +460,6 @@ h1,h2,h3,h4,h5,h6{
   height:auto;
   display:block;
   filter:drop-shadow(0 12px 28px rgba(11,31,58,.08));
-  transform:translateY(6px);
 }
 
 /* Reduced motion */
@@ -560,7 +560,11 @@ h1,h2,h3,h4,h5,h6{
     width:min(220px,60vw);
   }
 
-  .hero-right{ gap:12px; width:100%; }
+  .hero-right{
+    gap:12px;
+    width:100%;
+    padding-top:0;
+  }
   .hero-right picture{ justify-content:center; }
 
   /* Specialist track needs the portrait anchored to the bottom, centred */
