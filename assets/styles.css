@@ -65,7 +65,7 @@ h1,h2,h3,h4,h5,h6{
       rgba(198,90,114,0) 48%),
     var(--paper);
 }
-.hero-inner{max-width:1240px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+.hero-inner{max-width:1240px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr;gap:32px;align-items:flex-start}
 @media (min-width:900px){ .hero-inner{ grid-template-columns:1.35fr .65fr; gap:56px; } }
 .hero-left{
   --copy-measure:min(100%, 62ch);
@@ -290,8 +290,7 @@ h1,h2,h3,h4,h5,h6{
   font-family:"IBM Plex Sans",ui-sans-serif;
   font-size:15px;
   line-height:1.5;
-  letter-spacing:.04em;
-  text-transform:uppercase;
+  letter-spacing:.02em;
 }
 .cta-offer__arrow{
   position:absolute;
@@ -399,11 +398,10 @@ h1,h2,h3,h4,h5,h6{
   align-items:center;
   gap:18px;
   position:relative;
-  padding-top:clamp(48px, 9vh, 140px);
 }
 .hero-availability{
   position:absolute;
-  top:clamp(-24px, -2vh, -8px);
+  top:0;
   right:clamp(-8px, 1.6vw, 24px);
   display:flex;
   flex-direction:column;
@@ -439,7 +437,7 @@ h1,h2,h3,h4,h5,h6{
   max-width:260px;
 }
 .hero-portrait{
-  margin:clamp(20px, 4.8vh, 48px) 0 clamp(28px, 6vh, 80px);
+  margin:clamp(82px, 12vh, 156px) 0 clamp(28px, 6vh, 80px);
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -494,6 +492,7 @@ h1,h2,h3,h4,h5,h6{
   .overline--stone{ margin-left: 0; }
 
   .track-overline{ font-size:14.74px; margin:12px 0 6px 0; }
+  .hero-left .track-overline{ margin:0 0 6px 0; }
   .hero-title{ font-size:clamp(26.9px, 6.79vw, 44.5px); margin-bottom:18px; }
   .hero-sub{ font-size:clamp(18.14px, 2.69vw, 19.9px); margin-bottom:18px; max-width:46ch; }
   .trust-hook{ font-size:clamp(15.8px, 2.93vw, 18.72px); margin-bottom:calc(20px + 1vh); }
@@ -551,7 +550,7 @@ h1,h2,h3,h4,h5,h6{
   }
   .hero-availability__bar{ width:min(280px, 86vw); }
   .hero-availability__caption{ max-width:320px; }
-  .hero-portrait{ margin:clamp(26px, 6vh, 72px) 0 clamp(24px, 6vh, 60px); }
+  .hero-portrait{ margin:clamp(62px, 10vh, 120px) 0 clamp(24px, 6vh, 60px); }
 
   /* Make sure the face image stays fully visible above the fold */
   .hero-right img{
@@ -604,6 +603,7 @@ h1,h2,h3,h4,h5,h6{
   text-transform:none;
   color:rgba(11,31,58,.6);
 }
+.hero-left .track-overline{ margin:0 0 16px 0; }
 .track-specialist .track-overline,
 .page-cs .track-overline{ color:rgba(11,31,58,.7); }
 
