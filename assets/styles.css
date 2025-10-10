@@ -85,17 +85,6 @@ h1,h2,h3,h4,h5,h6{
   color:rgba(11,31,58,.86);
 }
 
-.page-cs .hero-footnote{
-  margin:0;
-  max-width:60ch;
-  font-size:16px;
-  line-height:1.6;
-  color:rgba(11,31,58,.64);
-  position:absolute;
-  left:0;
-  bottom:clamp(12px, 3vh, 28px);
-}
-
 .pill-row{
   display:flex;
   align-items:center;
@@ -409,6 +398,15 @@ h1,h2,h3,h4,h5,h6{
   gap:8px;
   text-align:right;
 }
+.hero-availability__label{
+  margin:0;
+  font-family:"IBM Plex Sans",ui-sans-serif;
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(11,31,58,.68);
+}
 .hero-availability__bar{
   width:clamp(180px, 24vw, 240px);
   height:18px;
@@ -547,6 +545,9 @@ h1,h2,h3,h4,h5,h6{
     gap:6px;
     width:100%;
     order:-1;
+  }
+  .hero-availability__label{
+    letter-spacing:.14em;
   }
   .hero-availability__bar{ width:min(280px, 86vw); }
   .hero-availability__caption{ max-width:320px; }
