@@ -123,6 +123,13 @@ h1,h2,h3,h4,h5,h6{
   position:relative;
   display:inline-block;
 }
+.hero-guarantee-banner__note{
+  font-weight:600;
+  letter-spacing:.015em;
+  text-transform:none;
+  color:rgba(11,31,58,.72);
+  margin-left:8px;
+}
 .hero-testimonial{
   width:100%;
   margin:0;
