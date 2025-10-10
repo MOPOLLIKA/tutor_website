@@ -68,7 +68,7 @@ h1,h2,h3,h4,h5,h6{
 .hero-inner{max-width:1240px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
 @media (min-width:900px){ .hero-inner{ grid-template-columns:1.35fr .65fr; gap:56px; } }
 .hero-left{
-  --copy-measure:min(100%, 52ch);
+  --copy-measure:min(100%, 62ch);
   color:var(--ink);
   position:relative;
   padding-bottom:clamp(96px, 14vh, 148px);
@@ -441,7 +441,7 @@ h1,h2,h3,h4,h5,h6{
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:12px;
+  gap:6px;
 }
 .hero-portrait picture{ width:100%; display:flex; justify-content:center; }
 .hero-portrait__caption{
