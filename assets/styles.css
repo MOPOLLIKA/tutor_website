@@ -496,10 +496,21 @@ h1,h2,h3,h4,h5,h6{
   top:0;
   bottom:0;
   left:0;
-  width:5%;
-  background:var(--mulberry);
+  width:10%;
+  background-color:var(--mulberry);
+  background-image:linear-gradient(135deg,
+    transparent 0%,
+    transparent 45%,
+    rgba(255,255,255,.6) 45%,
+    rgba(255,255,255,.6) 55%,
+    transparent 55%,
+    transparent 100%);
+  background-size:12.6px 12.6px;
+  background-position:0 0;
   border-radius:999px;
   box-shadow:0 6px 14px rgba(198,90,114,.24);
+  animation:hero-availability-flow 1s linear infinite;
+  will-change:background-position;
 }
 .hero-availability__caption{
   margin:0;
@@ -512,6 +523,10 @@ h1,h2,h3,h4,h5,h6{
 .hero-availability__count{
   font-weight:700;
   color:var(--ink);
+}
+@keyframes hero-availability-flow{
+  0%{ background-position:0 0; }
+  100%{ background-position:12.6px 0; }
 }
 .hero-portrait{
   margin:clamp(82px, 12vh, 156px) 0 clamp(28px, 6vh, 80px);
@@ -639,6 +654,17 @@ h1,h2,h3,h4,h5,h6{
   }
 
   .cta-offer-floating .cta-offer__arrow{ display:none; }
+
+  .hero-availability{
+    position:static;
+    align-items:flex-start;
+    text-align:left;
+    gap:8px;
+    width:100%;
+  }
+
+  .hero-availability__bar{ width:100%; max-width:320px; }
+  .hero-availability__caption{ max-width:none; }
 
   .hero-right{
     align-items:center;
