@@ -108,9 +108,12 @@ document.addEventListener('click', function(e) {
     const seconds = String(totalSeconds % 60).padStart(2, '0');
     const stamp = `${hours}:${minutes}:${seconds}`;
 
-    countdownEls.forEach((el) => { el.textContent = stamp; });
-
     const promoActive = safeRemaining > 0;
+    countdownEls.forEach((el) => {
+      el.textContent = stamp;
+      el.classList.toggle('is-expired', !promoActive);
+    });
+
     consultLinks.forEach((link) => {
       link.href = promoActive ? PROMO_LINK : REGULAR_LINK;
       link.dataset.offerActive = promoActive ? 'true' : 'false';
@@ -126,4 +129,40 @@ document.addEventListener('click', function(e) {
     const active = setState(remaining);
     if (!active) window.clearInterval(interval);
   }, 1000);
+})();
+
+// Keep floating consult CTA shell height aligned with countdown shell
+(function () {
+  const countdownShell = document.querySelector('.cta-offer-floating');
+  const consultShell = document.querySelector('.floating-cta');
+  if (!countdownShell || !consultShell) return;
+
+  let scheduled = false;
+  const applyHeight = () => {
+    const rect = countdownShell.getBoundingClientRect();
+    if (rect.height > 0) {
+      consultShell.style.setProperty('--floating-cta-shell-height', `${Math.round(rect.height)}px`);
+    } else {
+      consultShell.style.removeProperty('--floating-cta-shell-height');
+    }
+  };
+
+  const schedule = () => {
+    if (scheduled) return;
+    scheduled = true;
+    window.requestAnimationFrame(() => {
+      scheduled = false;
+      applyHeight();
+    });
+  };
+
+  schedule();
+
+  window.addEventListener('resize', schedule, { passive: true });
+  window.addEventListener('scroll', schedule, { passive: true });
+
+  if ('ResizeObserver' in window) {
+    const ro = new ResizeObserver(() => schedule());
+    ro.observe(countdownShell);
+  }
 })();
