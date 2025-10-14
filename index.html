@@ -32,6 +32,7 @@
         imagesizes="(max-width: 900px) 90vw, calc((min(1120px, 100vw) - 32px) * 0.45)">
 </head>
 <body class="page-cs">
+  <div class="top-panel-shell" aria-hidden="true"></div>
   <a class="brand-mark" href="#" aria-label="CS Prime Academy home">
     <img src="/favicon.svg" alt="Philipp favicon">
   </a>
@@ -39,7 +40,7 @@
   <section class="hero hero--specialist" role="banner">
     <div class="hero-inner">
       <div class="hero-left">
-        <p class="track-overline">CS Prime Academy — serious tuition for serious results.</p>
+        <p class="track-overline"><span class="track-overline__brand">CS Prime Academy</span> — serious tuition for serious results.</p>
         <h2 class="hero-title">The Breakthrough Programme<br>A Level Computer Science,<br>taught for <span class="u-underline">results</span>.</h2>
         <p class="hero-guarantee-banner">GUARANTEE +1 GRADE IN 3 MONTHS* <span class="hero-guarantee-banner__note">(never before)</span></p>
         <p class="hero-sub">No guesswork: 5 performance indicators ensure visible results.</p>
@@ -47,11 +48,11 @@
         <div class="cta-ensemble">
           <div class="testimonial-cta">
             <figure class="hero-testimonial">
-              <img class="hero-testimonial__media" src="/assets/natalie-160.png" alt="Natalie — delighted parent" width="112" height="112" loading="lazy">
-              <figcaption class="hero-testimonial__content">
+              <div class="hero-testimonial__header">
+                <img class="hero-testimonial__media" src="/assets/natalie-160.png" alt="Natalie — delighted parent" width="112" height="112" loading="lazy">
                 <p class="hero-testimonial__name">Natalie — envied by neighbours for son's results</p>
-                <blockquote class="hero-testimonial__quote">“…My son easily understands and absorbs information thanks to Philipp’s ability to explain complex topics clearly.”</blockquote>
-              </figcaption>
+              </div>
+              <blockquote class="hero-testimonial__quote">“…My son easily understands and absorbs information thanks to Philipp’s ability to explain complex topics clearly.”</blockquote>
             </figure>
 
             <div class="cta">
@@ -79,11 +80,14 @@
 
       <div class="hero-right">
         <div class="hero-availability" aria-live="polite">
-          <p class="hero-availability__label">FOUR SEATS ONLY</p>
+          <div class="hero-availability__header">
+            <span class="hero-availability__timer" data-offer-countdown>24:00:00</span>
+            <p class="hero-availability__label">FOUR SEATS ONLY</p>
+          </div>
           <div class="hero-availability__bar" role="progressbar" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0" aria-valuetext="0 of 4 places filled">
             <span class="hero-availability__fill" aria-hidden="true"></span>
           </div>
-          <p class="hero-availability__caption">4 places remaining. applications close after we fill.</p>
+          <p class="hero-availability__caption"><span class="hero-availability__count">4 places left.</span> applications close after we fill.</p>
         </div>
 
         <figure class="hero-portrait">
