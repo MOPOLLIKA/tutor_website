@@ -758,6 +758,10 @@ h1,h2,h3,h4,h5,h6{
   }
 
   .hero-availability__fill{ box-shadow:0 4px 12px rgba(198,90,114,.24); }
+
+  .cta-offer-floating{
+    display:none;
+  }
 }
 .track-overline{
   margin:26px 0 16px 0;
