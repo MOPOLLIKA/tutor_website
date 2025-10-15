@@ -1,0 +1,5 @@
+time for big changes. now, address both mobile and desktop. DON'T TOUCH THE HERO.
+
+let's change the content. 
+1. remove the proof section completely
+2. `
