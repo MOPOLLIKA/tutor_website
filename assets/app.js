@@ -167,6 +167,98 @@ document.addEventListener('click', function(e) {
   }
 })();
 
+// Case story carousel
+(function () {
+  const carousels = document.querySelectorAll('[data-carousel]');
+  if (!carousels.length) return;
+
+  carousels.forEach((carousel) => {
+    const track = carousel.querySelector('[data-carousel-track]');
+    const slides = track ? Array.from(track.querySelectorAll('[data-carousel-slide]')) : [];
+    const prevBtn = carousel.querySelector('[data-carousel-prev]');
+    const nextBtn = carousel.querySelector('[data-carousel-next]');
+    if (!track || slides.length <= 1 || !prevBtn || !nextBtn) return;
+
+    let index = 0;
+    const total = slides.length;
+
+    const apply = () => {
+      const offset = -index * 100;
+      track.style.transform = `translateX(${offset}%)`;
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle('is-active', slideIndex === index);
+      });
+      carousel.dataset.carouselIndex = String(index);
+    };
+
+    const goTo = (nextIndex) => {
+      index = (nextIndex + total) % total;
+      apply();
+    };
+
+    prevBtn.addEventListener('click', () => goTo(index - 1));
+    nextBtn.addEventListener('click', () => goTo(index + 1));
+
+    const viewport = carousel.querySelector('.case-story__carousel-viewport');
+    if (viewport) {
+      viewport.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          goTo(index - 1);
+        } else if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          goTo(index + 1);
+        }
+      });
+
+      let startX = 0;
+      let delta = 0;
+      let dragging = false;
+
+      const pointerDown = (clientX) => {
+        dragging = true;
+        startX = clientX;
+        delta = 0;
+      };
+
+      const pointerMove = (clientX) => {
+        if (!dragging) return;
+        delta = clientX - startX;
+      };
+
+      const pointerUp = () => {
+        if (!dragging) return;
+        if (Math.abs(delta) > 50) {
+          if (delta < 0) goTo(index + 1);
+          else goTo(index - 1);
+        }
+        dragging = false;
+        delta = 0;
+      };
+
+      viewport.addEventListener('pointerdown', (event) => {
+        pointerDown(event.clientX);
+        viewport.setPointerCapture(event.pointerId);
+      });
+
+      viewport.addEventListener('pointermove', (event) => {
+        if (!dragging) return;
+        pointerMove(event.clientX);
+      });
+
+      viewport.addEventListener('pointerup', (event) => {
+        viewport.releasePointerCapture(event.pointerId);
+        pointerUp();
+      });
+
+      viewport.addEventListener('pointercancel', pointerUp);
+      viewport.addEventListener('pointerleave', pointerUp);
+    }
+
+    apply();
+  });
+})();
+
 // Case story expander
 (function () {
   const wraps = document.querySelectorAll('[data-story-wrap]');
