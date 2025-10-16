@@ -166,3 +166,33 @@ document.addEventListener('click', function(e) {
     ro.observe(countdownShell);
   }
 })();
+
+// Case story expander
+(function () {
+  const wraps = document.querySelectorAll('[data-story-wrap]');
+  if (!wraps.length) return;
+
+  wraps.forEach((wrap) => {
+    const toggle = wrap.querySelector('[data-story-toggle]');
+    const collapse = wrap.querySelector('.case-story__collapse');
+    if (!toggle || !collapse) return;
+
+    const applyState = (expanded) => {
+      wrap.classList.toggle('is-expanded', expanded);
+      toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      toggle.textContent = expanded ? 'Hide story' : 'Read full story';
+      if (expanded) {
+        collapse.style.maxHeight = `${collapse.scrollHeight}px`;
+      } else {
+        collapse.style.maxHeight = '';
+      }
+    };
+
+    toggle.addEventListener('click', () => {
+      const nextState = !wrap.classList.contains('is-expanded');
+      applyState(nextState);
+    });
+
+    applyState(false);
+  });
+})();
