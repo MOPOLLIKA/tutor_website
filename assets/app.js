@@ -139,6 +139,7 @@ document.addEventListener('click', function(e) {
 (function () {
   const countdownShell = document.querySelector('.cta-offer-floating');
   const consultShell = document.querySelector('.floating-cta');
+  const offerStack = document.querySelector('.cta-offer-stack');
   if (!countdownShell || !consultShell) return;
 
   let scheduled = false;
@@ -151,11 +152,36 @@ document.addEventListener('click', function(e) {
     }
   };
 
+  const clampPosition = () => {
+    if (!offerStack) {
+      countdownShell.style.transform = '';
+      return;
+    }
+    countdownShell.style.transform = '';
+
+    const offerRect = offerStack.getBoundingClientRect();
+    const timerBar = offerStack.querySelector('.cta-offer__timer[aria-hidden="true"]');
+    let safeTop = offerRect.bottom;
+    if (timerBar) {
+      const barRect = timerBar.getBoundingClientRect();
+      safeTop = barRect.top;
+    }
+
+    const floatRect = countdownShell.getBoundingClientRect();
+    if (!floatRect.height) return;
+
+    const diff = safeTop - floatRect.top;
+    if (diff > 0) {
+      countdownShell.style.transform = `translateY(${diff}px)`;
+    }
+  };
+
   const schedule = () => {
     if (scheduled) return;
     scheduled = true;
     window.requestAnimationFrame(() => {
       scheduled = false;
+      clampPosition();
       applyHeight();
     });
   };
@@ -169,6 +195,56 @@ document.addEventListener('click', function(e) {
     const ro = new ResizeObserver(() => schedule());
     ro.observe(countdownShell);
   }
+})();
+
+// Keep desktop offer card bottom flush with hero CTA button
+(function () {
+  const MEDIA_QUERY = '(min-width: 1140px)';
+  const offerStack = document.querySelector('.page-cs .cta-offer-stack');
+  const heroInner = document.querySelector('.page-cs .hero-inner');
+  const heroCTAButton = document.querySelector('.page-cs .hero .cta .btn-primary');
+  if (!offerStack || !heroInner || !heroCTAButton) return;
+
+  const media = window.matchMedia(MEDIA_QUERY);
+  let scheduled = false;
+
+  const apply = () => {
+    if (!media.matches) {
+      offerStack.style.removeProperty('--cta-offer-bottom');
+      return;
+    }
+
+    const heroRect = heroInner.getBoundingClientRect();
+    const ctaRect = heroCTAButton.getBoundingClientRect();
+
+    if (!heroRect || !ctaRect) return;
+
+    const offset = Math.max(0, Math.round(heroRect.bottom - ctaRect.bottom));
+    offerStack.style.setProperty('--cta-offer-bottom', `${offset}px`);
+  };
+
+  const schedule = () => {
+    if (scheduled) return;
+    scheduled = true;
+    window.requestAnimationFrame(() => {
+      scheduled = false;
+      apply();
+    });
+  };
+
+  schedule();
+
+  window.addEventListener('resize', schedule, { passive: true });
+  window.addEventListener('scroll', schedule, { passive: true });
+
+  if ('ResizeObserver' in window) {
+    const ro = new ResizeObserver(() => schedule());
+    ro.observe(heroInner);
+    ro.observe(heroCTAButton);
+  }
+
+  if (typeof media.addEventListener === 'function') media.addEventListener('change', schedule);
+  else if (typeof media.addListener === 'function') media.addListener(schedule);
 })();
 
 // Case story carousel
