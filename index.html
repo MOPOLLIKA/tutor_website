@@ -27,8 +27,8 @@
 
   <link rel="stylesheet" href="/assets/styles.css">
 
-  <link rel="preload" as="image" href="/assets/philipp-1200.avif" type="image/avif"
-        imagesrcset="/assets/philipp-800.avif 800w, /assets/philipp-1200.avif 1200w, /assets/philipp-1800.avif 1800w"
+  <link rel="preload" as="image" href="/assets/people-photos/philipp-1200.avif" type="image/avif"
+        imagesrcset="/assets/people-photos/philipp-800.avif 800w, /assets/people-photos/philipp-1200.avif 1200w, /assets/people-photos/philipp-1800.avif 1800w"
         imagesizes="(max-width: 900px) 90vw, calc((min(1120px, 100vw) - 32px) * 0.45)">
 </head>
 <body class="page-cs">
@@ -53,7 +53,7 @@
           <div class="testimonial-cta">
             <figure class="hero-testimonial">
               <div class="hero-testimonial__header">
-                <img class="hero-testimonial__media" src="/assets/natalie-160.png" alt="Natalie — delighted parent" width="112" height="112" loading="lazy">
+                <img class="hero-testimonial__media" src="/assets/people-photos/natalie-256.png" alt="Natalie — delighted parent" width="112" height="112" loading="lazy">
                 <p class="hero-testimonial__name">Natalie — a happy mum envied by neighbours for son's results</p>
               </div>
               <blockquote class="hero-testimonial__quote">“…My son easily understands and absorbs information thanks to Philipp’s ability to explain complex topics clearly.”</blockquote>
@@ -67,11 +67,15 @@
 
           <aside class="cta-offer" aria-label="Special offer details">
             <div class="cta-offer__body">
-              <p class="cta-offer__eyebrow">SPECIAL OFFER – SAVE £50</p>
-              <p class="cta-offer__copy">Book your consult within 24hrs to get the <span class='text-mulberry'>£50 Diagnostic for Free.</span> No credit card required.</p>
+              <p class="cta-offer__eyebrow">SPECIAL OFFER – 98% OFF</p>
+              <p class="cta-offer__copy">Book your free consult within 24hrs to get the <span class="text-mulberry">£50 Diagnostic for £1.</span></p>
             </div>
             <div class="cta-offer__timer" aria-hidden="true"></div>
           </aside>
+
+          <div class="cta-offer__timer cta-offer__timer--mobile" role="status" aria-live="polite">
+            <span class="cta-offer__countdown" data-offer-countdown>24:00:00</span>
+          </div>
 
           <aside class="cta-offer-floating" aria-label="Special offer countdown">
             <div class="cta-offer__timer" role="status" aria-live="polite">
@@ -96,10 +100,10 @@
 
         <figure class="hero-portrait">
           <picture>
-            <!-- <source type="image/avif" srcset="/assets/philipp-800.avif 800w, /assets/philipp-1200.avif 1200w, /assets/philipp-1800.avif 1800w" sizes="(max-width: 900px) 90vw, calc((min(1120px, 100vw) - 32px) * 0.45)"> -->
-            <!--<source type="image/webp" srcset="/assets/philipp-800.webp 800w, /assets/philipp-1200.webp 1200w, /assets/philipp-1800.webp 1800w" sizes="(max-width: 900px) 90vw, calc((min(1120px, 100vw) - 32px) * 0.45)"> -->
-            <!--<img src="/assets/philipp-1200.webp" alt="Philipp Bogdan" width="1200" height="1600" loading="eager" fetchpriority="high"> -->
-            <img src="/assets/philipp.png" alt="Philipp Bogdan" width="1200" height="1600" loading="eager" fetchpriority="high">
+            <!-- <source type="image/avif" srcset="/assets/people-photos/philipp-800.avif 800w, /assets/people-photos/philipp-1200.avif 1200w, /assets/people-photos/philipp-1800.avif 1800w" sizes="(max-width: 900px) 90vw, calc((min(1120px, 100vw) - 32px) * 0.45)"> -->
+            <!--<source type="image/webp" srcset="/assets/people-photos/philipp-800.webp 800w, /assets/people-photos/philipp-1200.webp 1200w, /assets/people-photos/philipp-1800.webp 1800w" sizes="(max-width: 900px) 90vw, calc((min(1120px, 100vw) - 32px) * 0.45)"> -->
+            <!--<img src="/assets/people-photos/philipp-1200.webp" alt="Philipp Bogdan" width="1200" height="1600" loading="eager" fetchpriority="high"> -->
+            <img src="/assets/people-photos/philipp.png" alt="Philipp Bogdan" width="1200" height="1600" loading="eager" fetchpriority="high">
           </picture>
           <figcaption class="hero-portrait__caption">Philipp – Reach Your Prime</figcaption>
         </figure>
@@ -114,12 +118,31 @@
   <div class="delimiter delimiter--hero" aria-hidden="true"></div>
 
   <main id="core-content">
-    <section id="how-it-works" class="how-it-works" aria-labelledby="how-it-works-title">
+    <section id="fit" class="section section-tight section-fit">
       <div class="container">
-        <h2 id="how-it-works-title">How It Works</h2>
-        <div class="how-it-works__frame">
-          <img class="how-it-works__doodle" src="/assets/how-it-works.png" alt="How the CS Prime Academy programme works" loading="lazy">
+        <h2>Are You a Fit?</h2>
+        <p class="fit-intro">The Breakthrough Programme is not for everyone.</p>
+        <div class="fit-grid">
+          <div class="fit-group">
+            <h3>Who we ARE looking for:</h3>
+            <ul class="bullets">
+              <li>A Level OCR/AQA Computer Science</li>
+              <li>Aiming for A*/A</li>
+              <li>Need reliable outcomes</li>
+              <li>Want to improve your grades fast</li>
+              <li>Interested in AI or ML<span class="fit-footnote-marker" aria-hidden="true">*</span></li>
+            </ul>
+          </div>
+          <div class="fit-group">
+            <h3>Who we ARE NOT looking for:</h3>
+            <ul class="bullets">
+              <li>Want to just pass</li>
+              <li>“Grades will sort themselves out”</li>
+              <li>“Why study? I'll just cram before the test!”</li>
+            </ul>
+          </div>
         </div>
+        <p class="fit-footnote"><span aria-hidden="true">*</span> AI – Artificial Intelligence, ML – Machine Learning</p>
       </div>
     </section>
 
@@ -128,13 +151,14 @@
     <section id="guarantee" class="section section-tight">
       <div class="container">
         <article class="guarantee-offer">
-          <h2>Win Your Money Back <span class="text-trust offer-note">(never before)</span></h2>
+          <h2>Win Your Money Back <span class="text-trust offer-note">(yes, it's real)</span></h2>
           <p><strong>Prove progress. Earn it back.</strong></p>
           <p>Join the 3‑month Breakthrough Programme from The Academy and <strong>win 100% of your money back</strong> by the end if you meet three simple goals:</p>
           <ul class="bullets">
+            <li>Gain <strong>+1 grade</strong> at one of your college's assessments (or internal)</li>
             <li>Complete every home practical on time</li>
             <li>Attend all lessons (1 reschedule per month allowed, no cancellations)</li>
-            <li>Gain <strong>+1 grade</strong> at one of your college's assessments</li>
+            <li>Attend all monthly progress check meetings</li>
           </ul>
           <p>Show discipline, make progress, and you will finish stronger. For free.</p>
           <p><strong>Book Consult</strong> to start. It takes little time, no commitment, and could lead to your best results yet.</p>
@@ -154,7 +178,7 @@
             <div class="case-story__collapse" id="classic-story-body">
               <div class="case-story__section">
                 <blockquote class="quote-simple">
-                  <p>My heart sank. Spring mocks came back a <strong>C</strong>, but the offer demands an <strong>A</strong>! We tried tutor after tutor — no change.. I need someone to take charge, right away.</p>
+                  <p>My heart sank. Spring mocks came back with a <strong>C</strong>, but the offer demands an <strong>A</strong>! We tried tutor after tutor — no change.. I need someone to take charge, right away.</p>
                   <p class="quote-simple__cite">— mum</p>
                 </blockquote>
                 <p>They decided to join <strong>The Academy</strong>.</p>
@@ -193,7 +217,7 @@
                   <button class="case-story__carousel-nav case-story__carousel-nav--next" type="button" data-carousel-next aria-label="Next example">
                     <span aria-hidden="true">›</span>
                   </button>
-                  <p class="case-story__carousel-caption">Here are the boards from the past lessons with the student.</p>
+                  <p class="case-story__carousel-caption">Here is a glimpse on day-to-day Academy lessons</p>
                 </div>
               </div>
               <div class="case-story__section">
@@ -217,49 +241,45 @@
 
     <div class="delimiter delimiter--section" aria-hidden="true"></div>
 
-    <section id="pricing" class="section section-tight">
-      <div class="container">
-        <h2>How Much Do You Charge?</h2>
-        <p class="kicker">Every student has to go through the following:</p>
-        <ol class="steps">
-          <li><strong>Consult</strong> — free, no commitment, 20 min.</li>
-          <li><strong>Diagnostic</strong> — £50, 60 min.</li>
-          <li><strong>Core package</strong> — £480/month. Main benefits include:
-            <ul class="bullets">
-              <li>weekly 90 min lessons,</li>
-              <li>weekly home practical sets, marked,</li>
-              <li>post-lesson parent feedback,</li>
-              <li>biweekly in-lesson mock set performance tracking with 5 indicators and progress report,</li>
-              <li>and much more… you can learn about all benefits during the consult.</li>
-            </ul>
-          </li>
-        </ol>
-        <p class="note">Too good to be true? That’s why we only have 4 seats.</p>
-        <p><strong>Book Consult</strong> today before the availability ends.</p>
-      </div>
-    </section>
-
-    <div class="delimiter delimiter--section" aria-hidden="true"></div>
-
-    <section id="bonus" class="section section-tight">
-      <div class="container">
-        <h2>Bonus</h2>
-        <p>We understand that our program is not for everyone. To ensure you are happy: <strong>at any time you can make a full refund of ALL the money you’ve paid and leave The Breakthrough Programme</strong>.</p>
-      </div>
-    </section>
-
-    <div class="delimiter delimiter--section" aria-hidden="true"></div>
-
-
     <section id="testimonials" class="section section-tight">
       <div class="container">
         <h2>Testimonials</h2>
+        <div class="testimonials-grid">
+          <figure class="hero-testimonial">
+            <div class="hero-testimonial__header">
+              <img class="hero-testimonial__media" src="/assets/people-photos/natalie-256.png" alt="Natalya Valvacheva" width="112" height="112" loading="lazy">
+              <p class="hero-testimonial__name">Natalie V. — a happy mum envied by neighbours for son's results</p>
+            </div>
+            <blockquote class="hero-testimonial__quote quote-simple quote-simple--compact">
+              <p>Philipp speaks the same language as school students. My son easily understands and absorbs information thanks to Philipp’s ability to explain complex topics clearly. My son’s results have improved significantly, and his foundations are now stronger.</p>
+            </blockquote>
+          </figure>
+          <figure class="hero-testimonial">
+            <div class="hero-testimonial__header">
+              <img class="hero-testimonial__media" src="/assets/people-photos/anonymous-256.png" alt="Vivian Yeung — parent" width="112" height="112" loading="lazy">
+              <p class="hero-testimonial__name">Vivian Y. — another happy mum, finally relieved about A Level grades</p>
+            </div>
+            <blockquote class="hero-testimonial__quote quote-simple quote-simple--compact">
+              <p>Philipp is a very responsible, committed and skilful tutor. He taught my daughter for math. He quickly understand my daughter weaknesses and strength so as to design different techniques to suit her personally to deal with her problems in the subject. And, he tailor-made different techniques and use different types of questions to ensure her to pick up the key points and know how to tackle the questions easily. He is a very patient and always encourages the students so that they are eager to learn and can have sharp improvement in a short period of time.</p>
+              <p>In addition, he gives feedback to parents after each class so as a parent, I clearly understand the progress.</p>
+            </blockquote>
+          </figure>
+          <figure class="hero-testimonial">
+            <div class="hero-testimonial__header">
+              <img class="hero-testimonial__media" src="/assets/people-photos/alex-256.png" alt="Alex Valvachev" width="112" height="112" loading="lazy">
+              <p class="hero-testimonial__name">Alex V. — now can both have top grades and play football professionally</p>
+            </div>
+            <blockquote class="hero-testimonial__quote quote-simple quote-simple--compact">
+              <p>The lessons are engaging and I can always relate to Philipp. He helped me get<br>ahead of the class and now I can study more advanced concepts!</p>
+            </blockquote>
+          </figure>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="floating-cta" aria-live="polite" aria-label="Book a consult">
-    <a class="btn-primary" data-consult-link href="https://calendly.com/philippmathsphysics/consult-free-diagnostic" target="_blank" rel="noopener" data-gtag-event="book_consult_click">Book consult</a>
+    <a class="btn-primary" data-consult-link href="https://calendly.com/philippmathsphysics/consult-promo" target="_blank" rel="noopener" data-gtag-event="book_consult_click">Book consult</a>
   </footer>
 
   <!-- dev-only: cache-busting query while iterating -->
