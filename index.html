@@ -30,10 +30,13 @@
   <link rel="preload" as="image" href="/assets/people-photos/philipp-1600.avif" type="image/avif"
         imagesrcset="/assets/people-photos/philipp-1600.avif 1600w"
         imagesizes="(max-width: 900px) 90vw, calc((min(1120px, 100vw) - 32px) * 0.45)">
+  <link rel="preload" as="image" href="/assets/people-photos/philipp-1600.png" type="image/png"
+        imagesrcset="/assets/people-photos/philipp-1600.png 1600w"
+        imagesizes="(max-width: 900px) 90vw, calc((min(1120px, 100vw) - 32px) * 0.45)">
 </head>
 <body class="page-cs">
   <div class="top-panel-shell" aria-hidden="true"></div>
-  <a class="brand-mark" href="#" aria-label="CS Prime Academy home">
+  <a class="brand-mark" href="/" aria-label="CS Prime Academy home">
     <img src="/favicon.svg" alt="Philipp favicon">
   </a>
 
@@ -41,7 +44,7 @@
     <div class="hero-inner">
       <div class="hero-left">
         <p class="track-overline">CS Prime Academy — serious tuition for serious results.</p>
-        <h2 class="hero-title">The Breakthrough Programme<br>A-Level Computer Science,<br>taught for <span class="u-underline">results</span>.</h2>
+        <h1 class="hero-title">The Breakthrough Programme<br>A-Level Computer Science,<br>taught for <span class="u-underline">results</span>.</h1>
         <ul class="hero-proof-list">
           <li class="hero-proof-item">
             <span class="hero-guarantee-banner">ACHIEVE +1 GRADE IN 3 MONTHS TO WIN 100% MONEY BACK</span>
@@ -60,7 +63,7 @@
             </figure>
 
             <div class="cta">
-              <a class="btn-primary" data-consult-link href="https://calendly.com/csprime/consult-free-diagnostic" target="_blank" rel="noopener" data-gtag-event="book_consult_click" aria-label="Book a consult on Calendly">Book consult</a>
+              <a class="btn-primary" data-consult-link href="https://calendly.com/csprime/consult" target="_blank" rel="noopener noreferrer" data-gtag-event="book_consult_click" aria-label="Book a consult on Calendly">Book consult</a>
               <div class="cta-sub">Free • 20 min</div>
             </div>
           </div>
@@ -106,7 +109,11 @@
               type="image/avif"
               srcset="/assets/people-photos/philipp-1600.avif 1600w"
               sizes="(max-width: 900px) 90vw, calc((min(1120px, 100vw) - 32px) * 0.45)">
-            <img src="/assets/people-photos/philipp-1600.avif" alt="Philipp Bogdan" width="1600" height="1600" loading="eager" fetchpriority="high">
+            <source
+              type="image/png"
+              srcset="/assets/people-photos/philipp-1600.png 1600w"
+              sizes="(max-width: 900px) 90vw, calc((min(1120px, 100vw) - 32px) * 0.45)">
+            <img src="/assets/people-photos/philipp-1600.png" alt="Philipp Bogdan" width="1600" height="1600" loading="eager" fetchpriority="high">
           </picture>
           <figcaption class="hero-portrait__caption">Philipp – Reach Your Prime</figcaption>
         </figure>
@@ -143,6 +150,7 @@
               <li>Want to just pass</li>
               <li>“Grades will sort themselves out”</li>
               <li>“Why study? I'll just cram before the test!”</li>
+              <li>“Sorry, dog ate my homework again..”</li>
             </ul>
           </div>
         </div>
@@ -157,11 +165,11 @@
         <article class="guarantee-offer">
           <h2>Win Your Money Back <span class="text-trust offer-note">(yes, it's real)</span></h2>
           <p><strong>Prove progress. Earn it back.</strong></p>
-          <p>Join the 3‑month Breakthrough Programme from The Academy and <strong>win 100% of your money back</strong> by the end if you meet three simple goals:</p>
+          <p>Join The Breakthrough Programme from The Academy and <strong>win 100% of your money back</strong> after 3 months if you meet three simple goals:</p>
           <ul class="bullets">
             <li>Gain <strong>+1 grade</strong> at one of your college's assessments</li>
             <li>Complete every home practical on time</li>
-            <li>Attend all lessons (1 reschedule per month allowed, no cancellations)</li>
+            <li>Attend all lessons (1 reschedule per month allowed, no cancellations)<br>and all meetings</li>
           </ul>
           <p>Show discipline, make progress, and you will finish stronger. For free.</p>
           <p><strong>Book Consult</strong> to start. It takes little time, no commitment, and could lead to your best results yet.</p>
@@ -194,7 +202,7 @@
                   <li>offering bespoke home practice sets targeting her specific problems,</li>
                   <li>providing extra support between lessons when homework became challenging,</li>
                   <li>applying exam techniques used by top 1% students drilled into muscle memory,</li>
-                  <li>maintaining parent communication with <strong>under 15-minute</strong> DM response time, Monday to Sunday, day hours.</li>
+                  <li>maintaining parent communication with under <strong>15-minute DM</strong> response time, Monday to Sunday, 8am-8pm.</li>
                 </ul>
                 <p>These are standard CS Prime practices applied to every student, not experimental methods. And these are only a few examples of the full range of support and systems we offer.</p>
                 <div class="case-story__carousel" data-carousel aria-roledescription="carousel">
@@ -220,7 +228,7 @@
                   <button class="case-story__carousel-nav case-story__carousel-nav--next" type="button" data-carousel-next aria-label="Next example">
                     <span aria-hidden="true">›</span>
                   </button>
-                  <p class="case-story__carousel-caption">Here is a glimpse on day-to-day Academy lessons</p>
+                  <p class="case-story__carousel-caption">Here is a glimpse of day-to-day Academy lessons</p>
                 </div>
               </div>
               <div class="case-story__section">
@@ -282,10 +290,9 @@
   </main>
 
   <footer class="floating-cta" aria-live="polite" aria-label="Book a consult">
-    <a class="btn-primary" data-consult-link href="https://calendly.com/philippmathsphysics/consult-promo" target="_blank" rel="noopener" data-gtag-event="book_consult_click">Book consult</a>
+    <a class="btn-primary" data-consult-link href="https://calendly.com/csprime/consult" target="_blank" rel="noopener noreferrer" data-gtag-event="book_consult_click">Book consult</a>
   </footer>
 
-  <!-- dev-only: cache-busting query while iterating -->
-  <script src="/assets/app.js?dev=1" defer></script>
+  <script src="/assets/app.js" defer></script>
 </body>
 </html>

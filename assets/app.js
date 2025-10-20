@@ -2,16 +2,24 @@
 (function () {
   if (!('PerformanceObserver' in window)) return;
   let lcpEntry;
+  let po;
   try {
-    const po = new PerformanceObserver((list) => {
+    po = new PerformanceObserver((list) => {
       const entries = list.getEntries();
       if (entries.length) lcpEntry = entries[entries.length - 1];
     });
     po.observe({ type: 'largest-contentful-paint', buffered: true });
   } catch (_) {}
 
+  let reported = false;
   function reportLCP() {
-    if (!lcpEntry || typeof gtag !== 'function') return;
+    if (reported || typeof gtag !== 'function') return;
+    if (po) {
+      const entries = po.takeRecords();
+      if (entries.length) lcpEntry = entries[entries.length - 1];
+    }
+    if (!lcpEntry) return;
+    reported = true;
     const ms = Math.round(lcpEntry.startTime);
     gtag('event', 'lcp', {
       value: ms,
@@ -21,6 +29,7 @@
       size: lcpEntry.size || undefined,
       transport_type: 'beacon'
     });
+    if (po) po.disconnect();
   }
 
   addEventListener('pagehide', reportLCP, { once: true });
@@ -68,7 +77,8 @@ document.addEventListener('click', function(e) {
     for (const entry of entries) {
       if (entry.target !== heroCTA) continue;
       const progress = Math.max(0, 1 - entry.intersectionRatio);
-      if (entry.boundingClientRect.top >= entry.rootBounds.top) {
+      const rootTop = entry.rootBounds ? entry.rootBounds.top : 0;
+      if (entry.boundingClientRect.top >= rootTop) {
         setProgress(0);
         continue;
       }
