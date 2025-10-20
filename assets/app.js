@@ -67,7 +67,11 @@ document.addEventListener('click', function(e) {
   const observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
       if (entry.target !== heroCTA) continue;
-      const progress = 1 - entry.intersectionRatio;
+      const progress = Math.max(0, 1 - entry.intersectionRatio);
+      if (entry.boundingClientRect.top >= entry.rootBounds.top) {
+        setProgress(0);
+        continue;
+      }
       setProgress(progress);
     }
   }, { threshold: thresholds, rootMargin: '-8px 0px -8px 0px' });
