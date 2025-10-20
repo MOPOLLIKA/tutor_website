@@ -756,6 +756,7 @@ h1,h2,h3,h4,h5,h6{
   }
   .hero-availability__caption{
     max-width:320px;
+    white-space:normal;
   }
 }
 .hero-availability__header{
@@ -833,12 +834,63 @@ h1,h2,h3,h4,h5,h6{
   align-self:center;
 }
 .hero-right picture{ width:100%; display:flex; justify-content:center; }
-@media (min-width:1100px){ .hero-right{ transform:translateX(8px) } }
+@media (min-width:1100px){
+  .hero-right{
+    transform:none;
+    margin-left:8px;
+  }
+}
 .hero-right img{
   width:85%;
   height:auto;
   display:block;
   filter:drop-shadow(0 12px 28px rgba(11,31,58,.08));
+}
+
+@media (min-width:1140px){
+  .hero-availability{
+    position:fixed;
+    top:calc(env(safe-area-inset-top,0px) + clamp(24px, 6vh, 64px));
+    right:clamp(16px, 5vw, 44px);
+    width:min(336px, 84vw);
+    padding:12px 18px 14px;
+    border-radius:28px;
+    background:rgba(247,245,242,.72);
+    border:1px solid rgba(11,31,58,.16);
+    -webkit-backdrop-filter:blur(16px);
+    backdrop-filter:blur(16px);
+    box-shadow:0 12px 28px rgba(11,31,58,.16);
+    z-index:32;
+    --hero-availability-label-size:12px;
+    --hero-availability-timer-pad:calc((var(--hero-availability-label-size) + 4px - var(--hero-availability-label-size)) / 2);
+  }
+  .hero-availability__timer{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:calc(var(--hero-availability-label-size) + 4px);
+    padding:0 calc(var(--hero-availability-timer-pad) + 6px);
+    border-radius:calc((var(--hero-availability-label-size) + 4px) / 2);
+    background:var(--stone);
+    border:1px solid rgba(11,31,58,.16);
+    font-family:"IBM Plex Sans",ui-sans-serif;
+    font-weight:700;
+    font-size:var(--hero-availability-label-size);
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--ink);
+    font-variant-numeric:tabular-nums;
+    line-height:1;
+    white-space:nowrap;
+    margin-right:auto;
+  }
+  .hero-availability__bar{
+    width:100%;
+  }
+  .hero-availability__caption{
+    max-width:none;
+    white-space:nowrap;
+  }
 }
 @media (max-width:1139px){
   .hero-right{
