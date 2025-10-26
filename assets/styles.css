@@ -196,7 +196,6 @@ code,kbd,pre{
   font-weight:600;
   font-size:inherit;
   letter-spacing:.08em;
-  text-transform:uppercase;
   color:var(--mulberry);
   position:relative;
   display:inline;
